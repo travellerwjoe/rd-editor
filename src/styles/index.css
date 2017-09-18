@@ -1,0 +1,576 @@
+body {
+  background: #eee;
+  color: #333333;
+  font-size: 18px;
+  line-height: 28px;
+  font-family: 'Open Sans', serif; }
+
+p {
+  margin: 0 0 28px; }
+
+pre {
+  overflow-x: auto; }
+
+a {
+  color: #c73036;
+  font-family: Georgia, serif;
+  text-decoration: underline; }
+
+a:hover {
+  color: #333333;
+  text-decoration: underline; }
+
+.container {
+  background-color: white; }
+
+.ory-cell-leaf {
+  padding: 8px; }
+
+.container {
+  background: white;
+  padding: 0 24px; }
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  align-items: stretch; }
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px; } }
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px; } }
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px; } }
+
+.editable, #editable-static {
+  padding: 5px; }
+
+nav {
+  color: #eee;
+  background: #111;
+  font-family: 'Open Sans', serif; }
+
+nav ul {
+  list-style-type: none;
+  margin: 0 0 20px 0;
+  padding: 10px 20px;
+  text-align: right; }
+
+nav ul li {
+  display: inline-block;
+  padding: 0 10px; }
+
+nav ul li a,
+nav ul li a:visited {
+  color: #eee;
+  transition: all 200ms ease;
+  text-decoration: none;
+  font-family: 'Open Sans', serif; }
+
+nav ul li a:hover,
+nav ul li a:active {
+  color: #aaa;
+  text-decoration: none; }
+
+/* http://typecast.com/blog/a-more-modern-scale-for-web-typography */
+:root {
+  /* equivalent to 16px */
+  /* equivalent to 20px */ }
+
+body {
+  font-size: 100%; }
+
+body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2, h3, h4, h5, h6 {
+  font-size-adjust: 0.5; }
+
+.editable-area p, .editable-area h1, .editable-area h2, .editable-area h3, .editable-area h4, .editable-area h5, .editable-area h6, .editable-area blockquote, .editable-area pre {
+  margin: 1em 0 0.5em; }
+
+.editable-area p:first-child, .editable-area h1:first-child, .editable-area h2:first-child, .editable-area h3:first-child, .editable-area h4:first-child, .editable-area h5:first-child, .editable-area h6:first-child, .editable-area blockquote:first-child, .editable-area pre:first-child {
+  margin-top: 0; }
+
+.editable-area p:last-child, .editable-area h1:last-child, .editable-area h2:last-child, .editable-area h3:last-child, .editable-area h4:last-child, .editable-area h5:last-child, .editable-area h6:last-child, .editable-area blockquote:last-child, .editable-area pre:last-child {
+  margin-bottom: 0; }
+
+.editable-area ul, .editable-area ol {
+  margin: 0; }
+
+.editable-area li {
+  margin: 1em 0; }
+
+.editable-area body {
+  font-size: 1em;
+  line-height: 1.25em; }
+
+.editable-area em {
+  font-style: italic; }
+
+.editable-area strong {
+  font-weight: 700; }
+
+.editable-area h1 strong, .editable-area h2 strong, .editable-area h3 strong, .editable-area h4 strong, .editable-area h5 strong, .editable-area h6 strong {
+  font-weight: 800; }
+
+@media only screen and (max-width: 64em) and (min-width: 48em) {
+  .editable-area body {
+    font-size: 1em;
+    line-height: 1.375em; } }
+
+.editable-area h1 {
+  margin: 1em 0 0.5em 0;
+  font-size: 2em;
+  line-height: 1.25em; }
+
+.editable-area h1:first-child {
+  margin-top: 0; }
+
+@media only screen and (max-width: 64em) and (min-width: 48em) {
+  .editable-area h1 {
+    font-size: 2.5em;
+    /* 2.5x body copy size = 40px */
+    line-height: 1.125; } }
+
+@media only screen and (max-width: 64em) and (min-width: 48em) {
+  .editable-area h1 {
+    font-size: 3em;
+    /* 3x body copy size = 48px */
+    line-height: 1.05;
+    /* keep to a multiple of the 20px line height and something more appropriate for display headings */ } }
+
+.editable-area h2 {
+  margin: 0.8em 0 0.5em 0;
+  font-size: 1.625em;
+  /* 1.625x body copy size = 26px */
+  line-height: 1.15384615;
+  /* 30px / 26px */ }
+
+@media only screen and (max-width: 64em) and (min-width: 48em) {
+  .editable-area h2 {
+    font-size: 2em;
+    /* 2x body copy size = 32px */
+    line-height: 1.25em; } }
+
+@media only screen and (max-width: 48em) {
+  .editable-area h2 {
+    font-size: 2.25em;
+    /* 2.25x body copy size = 36px */
+    line-height: 1.25em; } }
+
+.editable-area h3 {
+  margin: 0.8em 0 0.5em 0;
+  font-size: 1.375em;
+  /* 1.375x body copy size = 22px */
+  line-height: 1.13636364;
+  /* 25px / 22px */ }
+
+@media only screen and (max-width: 64em) and (min-width: 48em) {
+  .editable-area h3 {
+    font-size: 1.5em;
+    /* 1.5x body copy size = 24px */
+    line-height: 1.25em; } }
+
+@media only screen and (max-width: 48em) {
+  .editable-area h3 {
+    font-size: 1.75em;
+    /* 1.75x body copy size = 28px */
+    line-height: 1.25em; } }
+
+.editable-area h4 {
+  margin: 0.8em 0 0.5em 0;
+  font-size: 1.125em;
+  /* 1.125x body copy size = 18px */
+  line-height: 1.11111111; }
+
+@media only screen and (max-width: 64em) and (min-width: 48em) {
+  .editable-area h4 {
+    line-height: 1.25em; } }
+
+@media only screen and (max-width: 48em) {
+  .editable-area h4 {
+    line-height: 1.25em; } }
+
+.editable-area h5 {
+  margin: 0.8em 0 0.5em 0;
+  font-size: 1.085em;
+  /* 1.125x body copy size = 18px */
+  line-height: 1.055; }
+
+@media only screen and (max-width: 64em) and (min-width: 48em) {
+  .editable-area h5 {
+    line-height: 1.25em; } }
+
+@media only screen and (max-width: 48em) {
+  .editable-area h5 {
+    line-height: 1.25em; } }
+
+.editable-area h6 {
+  margin: 0.8em 0 0.5em 0;
+  font-size: 1.055em;
+  /* 1.125x body copy size = 18px */
+  line-height: 1.005; }
+
+@media only screen and (max-width: 64em) and (min-width: 48em) {
+  .editable-area h6 {
+    line-height: 1.25em; } }
+
+@media only screen and (max-width: 48em) {
+  .editable-area h6 {
+    line-height: 1.25em; } }
+
+.editable-area blockquote {
+  font-size: 1em;
+  font-style: italic;
+  padding: 0 2.5em; }
+
+.ory-cell-leaf {
+  margin: 12px; }
+
+.ory-plugins-content-divider {
+  background-color: #aaa;
+  width: 100%;
+  height: 2px;
+  border: none; }
+
+.editable-area code, .editable-area pre {
+  font-family: monospace;
+  border-radius: 0.3em;
+  padding: 0.4em; }
+
+.editable-area code {
+  display: inline;
+  margin: 0 0.5em;
+  white-space: pre; }
+
+.editable-area pre {
+  display: block;
+  margin: 1em; }
+
+.editable-area ul, .editable-area ol {
+  margin: 1em 0;
+  list-style-type: inside; }
+
+.editable-area li {
+  margin: .2em 0 .2em 1em; }
+
+.editable-area li p {
+  margin: 0; }
+
+.editable-area ol {
+  list-style-type: decimal; }
+
+.editable-area ul {
+  list-style-type: disc; }
+
+.ory-controls-mode-toggle-button-inner {
+  float: right;
+  margin: 8px; }
+
+.ory-controls-mode-toggle-button-description {
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  margin-top: 24px;
+  float: right;
+  background: transparent;
+  color: transparent;
+  border: 1px transparent solid;
+  padding: 2px 8px;
+  text-align: right;
+  max-width: 0;
+  transition: all 200ms ease;
+  white-space: nowrap;
+  overflow: hidden; }
+
+.ory-controls-mode-toggle-button:hover .ory-controls-mode-toggle-button-description {
+  max-width: 999px;
+  background: rgba(0, 0, 0, 0.87);
+  color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12); }
+
+.ory-controls-mode-toggle-control-group {
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  right: 0;
+  padding: 16px;
+  transition: all 200ms ease; }
+
+.ory-controls-mode-toggle-clearfix {
+  clear: both; }
+
+.ory-toolbar-item-drag-handle-button,
+.ory-toolbar-item-drag-handle-button svg {
+  cursor: move !important; }
+
+.ory-toolbar-item-drag-handle {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 0;
+  color: rgba(255, 255, 255, 0.87) !important;
+  fill: rgba(255, 255, 255, 0.87) !important; }
+
+.ory-toolbar-item:hover .ory-toolbar-item-drag-handle {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  color: rgba(0, 0, 0, 0.54) !important;
+  fill: rgba(0, 0, 0, 0.54) !important; }
+
+.ory-toolbar-item:hover .ory-toolbar-item-drag-handle:hover {
+  background: rgba(0, 0, 0, 0.54);
+  color: rgba(255, 255, 255, 0.87) !important;
+  fill: rgba(255, 255, 255, 0.87) !important; }
+
+.ory-toolbar-item:hover .ory-toolbar-item-drag-handle:active {
+  background: rgba(0, 0, 0, 0.26);
+  color: rgba(255, 255, 255, 0.87) !important;
+  fill: rgba(255, 255, 255, 0.87) !important; }
+
+.rc-tooltip {
+  position: absolute;
+  z-index: 1301;
+  display: block;
+  visibility: visible;
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: 0.9; }
+
+.rc-tooltip-hidden {
+  display: none; }
+
+.rc-tooltip-placement-top,
+.rc-tooltip-placement-topLeft,
+.rc-tooltip-placement-topRight {
+  padding: 5px 0 9px 0; }
+
+.rc-tooltip-placement-right,
+.rc-tooltip-placement-rightTop,
+.rc-tooltip-placement-rightBottom {
+  padding: 0 5px 0 9px; }
+
+.rc-tooltip-placement-bottom,
+.rc-tooltip-placement-bottomLeft,
+.rc-tooltip-placement-bottomRight {
+  padding: 9px 0 5px 0; }
+
+.rc-tooltip-placement-left,
+.rc-tooltip-placement-leftTop,
+.rc-tooltip-placement-leftBottom {
+  padding: 0 9px 0 5px; }
+
+.rc-tooltip-inner {
+  padding: 8px 10px;
+  color: #fff;
+  text-align: left;
+  text-decoration: none;
+  background-color: #373737;
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.17); }
+
+.rc-tooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid; }
+
+.rc-tooltip-placement-top .rc-tooltip-arrow,
+.rc-tooltip-placement-topLeft .rc-tooltip-arrow,
+.rc-tooltip-placement-topRight .rc-tooltip-arrow {
+  bottom: 4px;
+  margin-left: -5px;
+  border-width: 5px 5px 0;
+  border-top-color: #373737; }
+
+.rc-tooltip-placement-top .rc-tooltip-arrow {
+  left: 50%; }
+
+.rc-tooltip-placement-topLeft .rc-tooltip-arrow {
+  left: 15%; }
+
+.rc-tooltip-placement-topRight .rc-tooltip-arrow {
+  right: 15%; }
+
+.rc-tooltip-placement-right .rc-tooltip-arrow,
+.rc-tooltip-placement-rightTop .rc-tooltip-arrow,
+.rc-tooltip-placement-rightBottom .rc-tooltip-arrow {
+  left: 4px;
+  margin-top: -5px;
+  border-width: 5px 5px 5px 0;
+  border-right-color: #373737; }
+
+.rc-tooltip-placement-right .rc-tooltip-arrow {
+  top: 50%; }
+
+.rc-tooltip-placement-rightTop .rc-tooltip-arrow {
+  top: 15%;
+  margin-top: 0; }
+
+.rc-tooltip-placement-rightBottom .rc-tooltip-arrow {
+  bottom: 15%; }
+
+.rc-tooltip-placement-left .rc-tooltip-arrow,
+.rc-tooltip-placement-leftTop .rc-tooltip-arrow,
+.rc-tooltip-placement-leftBottom .rc-tooltip-arrow {
+  right: 4px;
+  margin-top: -5px;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #373737; }
+
+.rc-tooltip-placement-left .rc-tooltip-arrow {
+  top: 50%; }
+
+.rc-tooltip-placement-leftTop .rc-tooltip-arrow {
+  top: 15%;
+  margin-top: 0; }
+
+.rc-tooltip-placement-leftBottom .rc-tooltip-arrow {
+  bottom: 15%; }
+
+.rc-tooltip-placement-bottom .rc-tooltip-arrow,
+.rc-tooltip-placement-bottomLeft .rc-tooltip-arrow,
+.rc-tooltip-placement-bottomRight .rc-tooltip-arrow {
+  top: 4px;
+  margin-left: -5px;
+  border-width: 0 5px 5px;
+  border-bottom-color: #373737; }
+
+.rc-tooltip-placement-bottom .rc-tooltip-arrow {
+  left: 50%; }
+
+.rc-tooltip-placement-bottomLeft .rc-tooltip-arrow {
+  left: 15%; }
+
+.rc-tooltip-placement-bottomRight .rc-tooltip-arrow {
+  right: 15%; }
+
+.rc-tooltip.rc-tooltip-zoom-enter,
+.rc-tooltip.rc-tooltip-zoom-leave {
+  display: block; }
+
+.rc-tooltip-zoom-enter,
+.rc-tooltip-zoom-appear {
+  opacity: 0;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused; }
+
+.rc-tooltip-zoom-leave {
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.6, -0.3, 0.74, 0.05);
+  animation-timing-function: cubic-bezier(0.6, -0.3, 0.74, 0.05);
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused; }
+
+.rc-tooltip-zoom-enter.rc-tooltip-zoom-enter-active,
+.rc-tooltip-zoom-appear.rc-tooltip-zoom-appear-active {
+  -webkit-animation-name: rcToolTipZoomIn;
+  animation-name: rcToolTipZoomIn;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+.rc-tooltip-zoom-leave.rc-tooltip-zoom-leave-active {
+  -webkit-animation-name: rcToolTipZoomOut;
+  animation-name: rcToolTipZoomOut;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+@-webkit-keyframes rcToolTipZoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale(0, 0);
+    transform: scale(0, 0); }
+  100% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1); } }
+
+@keyframes rcToolTipZoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale(0, 0);
+    transform: scale(0, 0); }
+  100% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1); } }
+
+@-webkit-keyframes rcToolTipZoomOut {
+  0% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1); }
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale(0, 0);
+    transform: scale(0, 0); } }
+
+@keyframes rcToolTipZoomOut {
+  0% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1); }
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale(0, 0);
+    transform: scale(0, 0); } }
+
+.ory-controls-trash {
+  position: fixed;
+  bottom: -64px;
+  z-index: 100;
+  left: 50%;
+  transition: bottom 200ms ease;
+  padding: 8px; }
+
+.ory-controls-trash.ory-controls-trash-active {
+  bottom: 16px; }
+
+.ory-plugins-content-slate-inline-toolbar {
+  position: absolute;
+  z-index: 1;
+  top: -10000px;
+  left: -10000px;
+  margin-top: -6px;
+  opacity: 0;
+  background-color: #212121;
+  border-radius: 4px;
+  transition: opacity .75s; }
+
+.ory-plugins-content-slate-paragraph-placeholder {
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.54); }
+
+.ory-plugins-content-image {
+  width: 100%; }
+
+.ory-plugins-content-image-placeholder {
+  position: relative;
+  width: 100%;
+  text-align: center; }

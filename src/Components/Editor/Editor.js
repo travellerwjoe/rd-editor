@@ -1,0 +1,72 @@
+import React from 'react'
+
+import Editor, { Editable, createEmptyState } from 'ory-editor-core'
+import 'ory-editor-core/lib/index.css'
+
+import { Trash, DisplayModeToggle, Toolbar } from '../Editor.UI'
+import slate from '../Editor.Plugin.Slate'
+
+import image from '../Editor.Plugin.Image'
+
+import video from 'ory-editor-plugins-video'
+import 'ory-editor-plugins-video/lib/index.css'
+
+import html5video from 'ory-editor-plugins-html5-video'
+import 'ory-editor-plugins-html5-video/lib/index.css'
+
+import parallax from 'ory-editor-plugins-parallax-background'
+import 'ory-editor-plugins-parallax-background/lib/index.css'
+
+import native from 'ory-editor-plugins-default-native'
+
+import { HTMLRenderer } from 'ory-editor-renderer'
+
+import content from './content'
+import '../../styles/index.css'
+
+require('react-tap-event-plugin')()
+
+
+
+const plugins = {
+    content: [slate(), image, video, html5video],
+    layout: [parallax({ defaultPlugin: slate() })],
+    native
+}
+
+const editor = new Editor({
+    plugins,
+    editables: [
+        ...content,
+        createEmptyState()
+    ]
+})
+
+export const RDEditor = (props) => {
+    console.log(props)
+    return (
+        <Editable
+            editor={editor}
+            id={props.id}
+            onChange={props.onChange}
+        />
+    )
+}
+
+export const RDControls = () => {
+    return (
+        <div>
+            <Trash editor={editor} />
+            <DisplayModeToggle editor={editor} />
+            <Toolbar editor={editor} />
+        </div>
+    )
+}
+
+export const RDHTMLRenderer = () => {
+    return (
+        <HTMLRenderer state={content[0]} plugins={plugins} />
+    )
+}
+
+export default Editable
