@@ -62,7 +62,7 @@ export const RDControls = () => {
             <Trash editor={editor} />
             <DisplayModeToggle editor={editor} />
             <Toolbar editor={editor} />
-            <Header />
+            <Header editor={editor}/>
         </div>
     )
 }

@@ -140,7 +140,7 @@ export default [
                     "version": "0.0.1"
                   },
                   "state": {
-                    "src": "http://172.17.1.246:18282/Content/images/Home/training_01.jpg"
+                    "src": "http://www.renda1j.com/Content/images/Home/training_01.jpg"
                   }
                 }
               }
@@ -245,7 +245,7 @@ export default [
                             "version": "0.0.1"
                           },
                           "state": {
-                            "src": "http://172.17.1.246:18282/Content/images/Home/training_05.jpg"
+                            "src": "http://www.renda1j.com/Content/images/Home/training_05.jpg"
                           }
                         }
                       }

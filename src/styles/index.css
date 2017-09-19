@@ -32,7 +32,8 @@ a:hover {
 .container {
   margin-right: auto;
   margin-left: auto;
-  align-items: stretch; }
+  align-items: stretch;
+  margin-top: 100px; }
 
 @media (min-width: 768px) {
   .container {

@@ -6,4 +6,5 @@
 
 .header-elements >div{ 
     vertical-align: top;
+    margin: 0 15px;
 }
