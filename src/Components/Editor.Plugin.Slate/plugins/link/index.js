@@ -139,13 +139,13 @@ class Button extends Component {
     const actions = [
       <FlatButton
         key="0"
-        label="Cancel"
+        label="取消"
         primary
         onTouchTap={this.handleClose}
       />,
       <FlatButton
         key="1"
-        label="Submit"
+        label="确认"
         primary
         onTouchTap={this.handleSubmit}
       />
@@ -166,7 +166,7 @@ class Button extends Component {
           <span>
             <Dialog
               className="ory-prevent-blur"
-              title="Create a link"
+              title="创建链接"
               modal={false}
               open={this.state.open}
               actions={[actions]}
@@ -174,7 +174,7 @@ class Button extends Component {
               {this.state.wasExpanded ? null : (
                 <div>
                   <TextField
-                    hintText="Link title"
+                    hintText="链接名"
                     onChange={this.onTitleChange}
                     value={this.state.title}
                   />

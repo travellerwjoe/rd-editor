@@ -13,7 +13,6 @@ import Plugin from './plugins/Plugin'
 // import KatexPlugin from './plugins/katex'
 import * as hooks from './hooks'
 import parse5 from 'parse5'
-import './index.css'
 
 const createNodes = compose(mergeAll, map(prop('nodes')))
 const createMarks = compose(mergeAll, map(prop('marks')))

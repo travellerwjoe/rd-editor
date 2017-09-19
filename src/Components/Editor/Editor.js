@@ -3,7 +3,7 @@ import React from 'react'
 import Editor, { Editable, createEmptyState } from 'ory-editor-core'
 import 'ory-editor-core/lib/index.css'
 
-import { Trash, DisplayModeToggle, Toolbar } from '../Editor.UI'
+import { Trash, DisplayModeToggle, Toolbar, Header } from '../Editor.UI'
 import slate from '../Editor.Plugin.Slate'
 
 import image from '../Editor.Plugin.Image'
@@ -13,6 +13,9 @@ import 'ory-editor-plugins-video/lib/index.css'
 
 import html5video from 'ory-editor-plugins-html5-video'
 import 'ory-editor-plugins-html5-video/lib/index.css'
+
+import spacer from 'ory-editor-plugins-spacer'
+import 'ory-editor-plugins-spacer/lib/index.css'
 
 import parallax from 'ory-editor-plugins-parallax-background'
 import 'ory-editor-plugins-parallax-background/lib/index.css'
@@ -29,7 +32,7 @@ require('react-tap-event-plugin')()
 
 
 const plugins = {
-    content: [slate(), image, video, html5video],
+    content: [slate(), image, video, html5video, spacer],
     layout: [parallax({ defaultPlugin: slate() })],
     native
 }
@@ -59,6 +62,7 @@ export const RDControls = () => {
             <Trash editor={editor} />
             <DisplayModeToggle editor={editor} />
             <Toolbar editor={editor} />
+            <Header />
         </div>
     )
 }

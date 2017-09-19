@@ -1,0 +1,9 @@
+.header-elements{ 
+    position: absolute;
+    top: 0; 
+    width: 100%;
+}
+
+.header-elements >div{ 
+    vertical-align: top;
+}
