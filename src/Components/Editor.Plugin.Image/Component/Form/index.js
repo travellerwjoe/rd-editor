@@ -2,34 +2,50 @@
 import React from 'react'
 import Display from '../Display'
 import TextField from 'material-ui/TextField'
+import { UploaderDialogToggle } from '../Uploader'
 import type { PropTypes } from '../index.js'
 
 import { BottomToolbar } from 'ory-editor-ui'
 
-const handleChange = (onChange: Function) => (e: Event) => {
-  const target = e.target
-  if (target instanceof HTMLInputElement) {
-    onChange({ src: target.value })
-    return
+
+class Form extends React.Component {
+  state = {
+    value: this.props.state.src
+  }
+  constructor(props: PropTypes) {
+    super(props)
+  }
+  handleChange = (onChange: Function) => (e: Event) => {
+    const target = e.target
+    if (target instanceof HTMLInputElement) {
+      onChange({ src: target.value })
+      return
+    }
+  }
+  handleConfirm = (e, value) => {
+    this.setState({
+      value
+    })
+  }
+  render() {
+    return (
+      <div>
+        <Display {...this.props} />
+        <BottomToolbar open={this.props.focused}>
+          <TextField
+            hintText="http://example.com/image.png"
+            floatingLabelText="图片路径（url地址）"
+            inputStyle={{ color: 'white' }}
+            floatingLabelStyle={{ color: 'white' }}
+            hintStyle={{ color: 'grey' }}
+            style={{ width: '512px' }}
+            value={this.state.value}
+            onChange={this.handleChange(this.props.onChange)}
+          />
+          <UploaderDialogToggle onConfirm={this.handleConfirm} />
+        </BottomToolbar>
+      </div>
+    )
   }
 }
-
-const Form = (props: PropTypes) => (
-  <div>
-    <Display {...props} />
-    <BottomToolbar open={props.focused}>
-      <TextField
-        hintText="http://example.com/image.png"
-        floatingLabelText="图片路径（url地址）"
-        inputStyle={{ color: 'white' }}
-        floatingLabelStyle={{ color: 'white' }}
-        hintStyle={{ color: 'grey' }}
-        style={{ width: '512px' }}
-        value={props.state.src}
-        onChange={handleChange(props.onChange)}
-      />
-    </BottomToolbar>
-  </div>
-)
-
 export default Form

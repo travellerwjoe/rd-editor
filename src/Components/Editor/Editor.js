@@ -32,8 +32,8 @@ require('react-tap-event-plugin')()
 
 
 const plugins = {
-    content: [slate(), image, video, html5video, spacer],
-    layout: [parallax({ defaultPlugin: slate() })],
+    content: [slate(), image],
+    // layout: [parallax({ defaultPlugin: slate() })],
     native
 }
 
@@ -62,7 +62,7 @@ export const RDControls = () => {
             <Trash editor={editor} />
             <DisplayModeToggle editor={editor} />
             <Toolbar editor={editor} />
-            <Header editor={editor}/>
+            <Header editor={editor} />
         </div>
     )
 }

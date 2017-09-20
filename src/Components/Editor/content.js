@@ -214,20 +214,6 @@ export default [
             "id": "4eb9f418-17fa-42ee-aae5-3fe7ef552a2d",
             "cells": [
               {
-                "id": "8153cb38-955f-4538-a676-956edec8bd99",
-                "inline": null,
-                "size": 2,
-                "content": {
-                  "plugin": {
-                    "name": "ory/editor/core/content/spacer",
-                    "version": "0.0.1"
-                  },
-                  "state": {
-                    "height": 656
-                  }
-                }
-              },
-              {
                 "id": "d32893cc-a82e-4237-a3b7-cb82f516d477",
                 "inline": null,
                 "size": 8,
@@ -294,20 +280,6 @@ export default [
                     ]
                   }
                 ]
-              },
-              {
-                "id": "77545cd5-67c1-4cd3-ac00-ab0f2a190fc4",
-                "inline": null,
-                "size": 2,
-                "content": {
-                  "plugin": {
-                    "name": "ory/editor/core/content/spacer",
-                    "version": "0.0.1"
-                  },
-                  "state": {
-                    "height": 669
-                  }
-                }
               }
             ]
           }

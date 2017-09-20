@@ -1,0 +1,41 @@
+.uploader .uploader-hover .uploader-delete {
+  background: rgba(0, 0, 0, 0.4);
+  top: 0; }
+
+.uploader .uploader-selected {
+  background: rgba(0, 0, 0, 0.4); }
+  .uploader .uploader-selected:after {
+    content: 'done';
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 120px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    line-height: 150px;
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    margin: auto; }
+
+.uploader .uploader-delete {
+  transition: top .3s;
+  position: absolute;
+  top: -32px;
+  left: 0;
+  text-align: right;
+  height: 32px;
+  width: 100%; }
