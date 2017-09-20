@@ -105,15 +105,16 @@ class Uploader extends Component {
         const img = el.getElementsByTagName('img')[0]
         const src = img.src
         let status = 'select'
-        if (!el.className.includes('uploader-selected')) {
-            el.className += ' uploader-selected'
+
+        el.classList.toggle('uploader-selected')
+
+        if (!el.classList.contains('uploader-selected')) {
             this.selectedFileCount++
         } else {
-            el.className = el.className.replace('uploader-selected', '')
             status = 'unselect'
             this.selectedFileCount--
         }
-        console.log(this.selectedFileCount)
+
         typeof this.props.onSelectFile === 'function' && this.props.onSelectFile(e, src, status, this.selectedFileCount)
     }
 
@@ -130,15 +131,15 @@ class Uploader extends Component {
 
     hoverFile = (e) => {
         const el = e.currentTarget
-        if (el.className.includes('uploader-selected')) {
+        if (el.classList.contains('uploader-selected')) {
             return
         }
-        el.className += ' uploader-hover'
+        el.classList.add('uploader-hover')
     }
 
     leaveFile = (e) => {
         const el = e.currentTarget
-        el.className = el.className.replace('uploader-hover', '')
+        el.classList.remove('uploader-hover')
     }
 
     componentWillMount() {
@@ -183,9 +184,10 @@ class Uploader extends Component {
                                 onMouseOver={this.hoverFile}
                                 onMouseOut={this.leaveFile}
                             >
+                                <img src={`${item.img}`} />
                                 <div className="uploader-delete">
                                     <FontIcon
-                                        className="material-icons"
+                                        className="uploader-delete material-icons"
                                         color={white}
                                         style={{ cursor: 'pointer', marginTop: 5 }}
                                         onClick={(e) => this.deleteFile(e, index)}
@@ -193,7 +195,6 @@ class Uploader extends Component {
                                         delete_forever
                                     </FontIcon>
                                 </div>
-                                <img src={`${item.img}`} />
                             </GridTile>
                         ))
                     }
