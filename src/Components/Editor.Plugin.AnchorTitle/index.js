@@ -1,6 +1,22 @@
 import React from 'react'
-import Component from './Component'
+import AnchorTitle, { Nav } from './Component'
 import Title from 'material-ui/svg-icons/editor/title'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import reducers from './reducers'
+
+const store = createStore(reducers)
+
+const Component = (props) => {
+    const children = props.nav ? <Nav {...props} /> : <AnchorTitle {...props} />
+    return (
+        <Provider store={store}>
+            {children}
+        </Provider>
+    )
+}
+
+export const AnchorNav = (props) => <Component nav={true} />
 
 export default {
     Component,

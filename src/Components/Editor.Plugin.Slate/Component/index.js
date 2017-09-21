@@ -69,7 +69,6 @@ class Slate extends Component {
       focus
     } = this.props
     const isOpened = editorState.isExpanded && editorState.isFocused
-    console.log(this.props.state)
     return (
       <div>
         <Portal isOpened={isOpened} onOpen={this.handleOpen}>

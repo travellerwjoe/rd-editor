@@ -6,3 +6,27 @@
   padding: 5px; }
   .anchor-title h2 {
     margin: 0; }
+
+.anchor-nav {
+  position: fixed;
+  top: 100px;
+  left: 160px;
+  background: #fff;
+  padding: 0 20px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1), -2px -2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  width: 160px;
+  box-sizing: border-box; }
+  .anchor-nav .anchor-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+    .anchor-nav .anchor-nav-list li {
+      margin: 10px 0;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      border-radius: 5px;
+      padding: 0 10px;
+      margin: 15px 0; }

@@ -8,7 +8,7 @@ import slate from '../Editor.Plugin.Slate'
 
 import image from '../Editor.Plugin.Image'
 
-import anchorTitle from '../Editor.Plugin.AnchorTitle'
+import anchorTitle, { AnchorNav } from '../Editor.Plugin.AnchorTitle'
 
 import video from 'ory-editor-plugins-video'
 import 'ory-editor-plugins-video/lib/index.css'
@@ -65,6 +65,7 @@ export const RDControls = () => {
             <DisplayModeToggle editor={editor} />
             <Toolbar editor={editor} />
             <Header editor={editor} />
+            <AnchorNav />
         </div>
     )
 }
