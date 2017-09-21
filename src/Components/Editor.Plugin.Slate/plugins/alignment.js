@@ -13,7 +13,7 @@ export default class AlignmentPlugin extends Plugin {
   props: Props
 
   // eslint-disable-next-line react/display-name
-  createButton = (align, icon) => ({ editorState, onChange }: Props) => {
+  createButton = (align, icon, tip) => ({ editorState, onChange }: Props) => {
     const onClick = e => {
       e.preventDefault()
 
@@ -33,15 +33,15 @@ export default class AlignmentPlugin extends Plugin {
       block => block.data.get('align') === align
     )
 
-    return <ToolbarButton onClick={onClick} isActive={isActive} icon={icon} />
+    return <ToolbarButton tooltip={tip} onClick={onClick} isActive={isActive} icon={icon} />
   }
 
   name = 'alignment'
 
   toolbarButtons = [
-    this.createButton('left', <AlignLeftIcon />),
-    this.createButton('center', <AlignCenterIcon />),
-    this.createButton('right', <AlignRightIcon />),
-    this.createButton('justify', <AlignJustifyIcon />)
+    this.createButton('left', <AlignLeftIcon />, '左对齐'),
+    this.createButton('center', <AlignCenterIcon />, '居中对齐'),
+    this.createButton('right', <AlignRightIcon />, '右对齐'),
+    this.createButton('justify', <AlignJustifyIcon />, '两端对齐')
   ]
 }

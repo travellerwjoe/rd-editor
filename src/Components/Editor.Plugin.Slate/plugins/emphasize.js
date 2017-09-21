@@ -12,7 +12,7 @@ export const EM = 'EMPHASIZE/EM'
 export const U = 'EMPHASIZE/U'
 
 // eslint-disable-next-line react/display-name
-const createButton = (type, icon) => ({ editorState, onChange }: Props) => {
+const createButton = (type, icon, tip) => ({ editorState, onChange }: Props) => {
   const onClick = e => {
     e.preventDefault()
 
@@ -27,7 +27,7 @@ const createButton = (type, icon) => ({ editorState, onChange }: Props) => {
   const isActive =
     editorState && editorState.marks.some(mark => mark.type === type)
 
-  return <ToolbarButton onClick={onClick} isActive={isActive} icon={icon} />
+  return <ToolbarButton tooltip={tip} onClick={onClick} isActive={isActive} icon={icon} />
 }
 
 export default class EmphasizePlugin extends Plugin {
@@ -67,9 +67,9 @@ export default class EmphasizePlugin extends Plugin {
   }
 
   hoverButtons = [
-    createButton(STRONG, <BoldIcon />),
-    createButton(EM, <ItalicIcon />),
-    createButton(U, <UnderlinedIcon />)
+    createButton(STRONG, <BoldIcon />, '粗体'),
+    createButton(EM, <ItalicIcon />, '斜体'),
+    createButton(U, <UnderlinedIcon />, '下划线')
   ]
 
   deserialize = (el, next) => {

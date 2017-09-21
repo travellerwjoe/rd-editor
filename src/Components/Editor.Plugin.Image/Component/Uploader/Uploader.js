@@ -43,6 +43,19 @@ const getFiles = () => {
 localStorage.setItem('images', JSON.stringify(getFiles()))
 
 class Uploader extends Component {
+    static propTypes = {
+        server: React.PropTypes.string, // 服务器上传地址
+        multiple: React.PropTypes.bool, //多文件上传
+        multipleSelect: React.PropTypes.bool, //文件可否多选
+        onSelectFile: React.PropTypes.func, //选中已上传文件事件
+        onDeleteFile: React.PropTypes.func //删除已上传文件事件
+    }
+
+    static defaultProps = {
+        multiple: true,
+        multipleSelect: true
+    }
+
     constructor(props) {
         super(props);
 
@@ -251,17 +264,4 @@ class Uploader extends Component {
     }
 }
 
-Uploader.propTypes = {
-    server: React.PropTypes.string, // 服务器上传地址
-    multiple: React.PropTypes.bool, //多文件上传
-    multipleSelect: React.PropTypes.bool, //文件可否多选
-    onSelectFile: React.PropTypes.func, //选中已上传文件事件
-    onDeleteFile: React.PropTypes.func //删除已上传文件事件
-}
-
-Uploader.defaultProps = {
-    multiple: true,
-    multipleSelect: true
-}
-
-export default Uploader;
+export default Uploader

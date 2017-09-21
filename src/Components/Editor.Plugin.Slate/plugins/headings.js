@@ -35,7 +35,7 @@ export default class HeadingsPlugin extends Plugin {
   props: Props
 
   // eslint-disable-next-line react/display-name
-  createButton = (type, icon) => ({ editorState, onChange }: Props) => {
+  createButton = (type, icon, tip) => ({ editorState, onChange }: Props) => {
     const onClick = e => {
       e.preventDefault()
 
@@ -51,7 +51,7 @@ export default class HeadingsPlugin extends Plugin {
 
     const isActive = editorState.blocks.some(block => block.type === type)
 
-    return <ToolbarButton onClick={onClick} isActive={isActive} icon={icon} />
+    return <ToolbarButton tooltip={tip} onClick={onClick} isActive={isActive} icon={icon} />
   }
 
   name = 'headings'
@@ -66,12 +66,12 @@ export default class HeadingsPlugin extends Plugin {
   }
 
   toolbarButtons = [
-    this.createButton(H1, <H1Icon />),
-    this.createButton(H2, <H2Icon />),
-    this.createButton(H3, <H3Icon />),
-    this.createButton(H4, <H4Icon />),
-    this.createButton(H5, <H5Icon />),
-    this.createButton(H6, <H6Icon />)
+    this.createButton(H1, <H1Icon />, '一号标题'),
+    this.createButton(H2, <H2Icon />, '二号标题'),
+    this.createButton(H3, <H3Icon />, '三号标题'),
+    this.createButton(H4, <H4Icon />, '四号标题'),
+    this.createButton(H5, <H5Icon />, '五号标题'),
+    this.createButton(H6, <H6Icon />, '六号标题')
   ]
 
   deserialize = (el, next) => {

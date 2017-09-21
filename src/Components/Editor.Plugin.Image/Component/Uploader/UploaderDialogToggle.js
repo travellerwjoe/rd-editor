@@ -6,6 +6,14 @@ import UploaderDialog from './UploaderDialog'
 
 
 class UploaderDialogToggle extends Component {
+    static propTypes = {
+        type: React.PropTypes.oneOf(['Button', 'Text']),//展示行式，button控件或text控件
+        buttonProps: React.PropTypes.object, //ReiseButton的props属性
+        textProps: React.PropTypes.object, //TextField的props属性
+        inline: React.PropTypes.bool,
+        onConfirm: React.PropTypes.func
+    }
+
     state = {
         open: false,
         value: this.props.textProps && this.props.textProps.value
@@ -58,12 +66,4 @@ class UploaderDialogToggle extends Component {
     }
 }
 
-UploaderDialogToggle.propTypes = {
-    type: React.PropTypes.oneOf(['Button', 'Text']),//展示行式，button控件或text控件
-    buttonProps: React.PropTypes.object, //ReiseButton的props属性
-    textProps: React.PropTypes.object, //TextField的props属性
-    inline: React.PropTypes.bool,
-    onConfirm: React.PropTypes.func
-};
-
-export default UploaderDialogToggle;
+export default UploaderDialogToggle

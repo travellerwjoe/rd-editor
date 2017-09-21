@@ -162,6 +162,7 @@ class Button extends Component {
             onClick={this.onClick}
             isActive={hasLinks}
             icon={<LinkIcon />}
+            tooltip='设置超链接'
           />
           <span>
             <Dialog

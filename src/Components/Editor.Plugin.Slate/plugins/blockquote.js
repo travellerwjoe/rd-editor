@@ -52,6 +52,7 @@ export default class BlockquotePlugin extends Plugin {
 
     return (
       <ToolbarButton
+        tooltip="段落引用"
         onClick={onClick}
         isActive={isActive}
         icon={<BlockquoteIcon />}
