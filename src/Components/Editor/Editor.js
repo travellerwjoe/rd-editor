@@ -8,6 +8,8 @@ import slate from '../Editor.Plugin.Slate'
 
 import image from '../Editor.Plugin.Image'
 
+import anchorTitle from '../Editor.Plugin.AnchorTitle'
+
 import video from 'ory-editor-plugins-video'
 import 'ory-editor-plugins-video/lib/index.css'
 
@@ -32,7 +34,7 @@ require('react-tap-event-plugin')()
 
 
 const plugins = {
-    content: [slate(), image],
+    content: [slate(), image, anchorTitle],
     // layout: [parallax({ defaultPlugin: slate() })],
     native
 }

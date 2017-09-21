@@ -43,7 +43,7 @@ export default [
             ]
           },
           {
-            "id": "07ef8816-07c8-456d-951b-d4b0c0c59d34",
+            "id": "3cb82f56-7b33-4eae-91e7-b0aa63fbb473",
             "cells": [
               {
                 "id": "047f63e2-b6e4-411b-b539-c6af6c813af9",
@@ -69,6 +69,25 @@ export default [
                         }
                       ]
                     }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "22673272-b830-4915-a8c3-b60a5d07821c",
+            "cells": [
+              {
+                "id": "366c5375-9c5e-4360-9aad-b885b159fc40",
+                "inline": null,
+                "size": 12,
+                "content": {
+                  "plugin": {
+                    "name": "AnchorTitle",
+                    "version": "0.0.1"
+                  },
+                  "state": {
+                    "value": "33442455455"
                   }
                 }
               }
@@ -211,75 +230,63 @@ export default [
             ]
           },
           {
-            "id": "4eb9f418-17fa-42ee-aae5-3fe7ef552a2d",
+            "id": "423f9f88-136e-406f-b95c-91efeef90944",
             "cells": [
               {
-                "id": "d32893cc-a82e-4237-a3b7-cb82f516d477",
+                "id": "fe03a45c-0f13-4b4b-b40e-0733a03a7f21",
                 "inline": null,
-                "size": 8,
-                "rows": [
-                  {
-                    "id": "423f9f88-136e-406f-b95c-91efeef90944",
-                    "cells": [
-                      {
-                        "id": "fe03a45c-0f13-4b4b-b40e-0733a03a7f21",
-                        "inline": null,
-                        "size": 12,
-                        "content": {
-                          "plugin": {
-                            "name": "ory/editor/core/content/image",
-                            "version": "0.0.1"
-                          },
-                          "state": {
-                            "src": "http://www.renda1j.com/Content/images/Home/training_05.jpg"
-                          }
-                        }
-                      }
-                    ]
+                "size": 12,
+                "content": {
+                  "plugin": {
+                    "name": "ory/editor/core/content/image",
+                    "version": "0.0.1"
                   },
-                  {
-                    "id": "4c0ca31e-d41c-424a-b0b4-5443af1b78f9",
-                    "cells": [
-                      {
-                        "id": "5f8b2068-ce3a-4739-9deb-2defe12d3c0d",
-                        "inline": null,
-                        "size": 12,
-                        "content": {
-                          "plugin": {
-                            "name": "ory/editor/core/content/slate",
-                            "version": "0.0.1"
-                          },
-                          "state": {
-                            "serialized": {
-                              "nodes": [
-                                {
-                                  "kind": "block",
-                                  "type": "PARAGRAPH/PARAGRAPH",
-                                  "nodes": [
-                                    {
-                                      "kind": "text",
-                                      "text": "【以理论指导实践，达到思想的升华】\r"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "kind": "block",
-                                  "type": "PARAGRAPH/PARAGRAPH",
-                                  "nodes": [
-                                    {
-                                      "kind": "text",
-                                      "text": "井冈山精神、井冈山斗争史、中中央苏区斗争史、党性修养、领导科学与艺术、贯彻落实科学发展观与红色管理等方面的100多个专题教学课程，权威专家团授课，深刻学习井冈山核心精神，领悟毛泽东的领军之道。"
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          }
-                        }
-                      }
-                    ]
+                  "state": {
+                    "src": "http://www.renda1j.com/Content/images/Home/training_05.jpg"
                   }
-                ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "4c0ca31e-d41c-424a-b0b4-5443af1b78f9",
+            "cells": [
+              {
+                "id": "5f8b2068-ce3a-4739-9deb-2defe12d3c0d",
+                "inline": null,
+                "size": 12,
+                "content": {
+                  "plugin": {
+                    "name": "ory/editor/core/content/slate",
+                    "version": "0.0.1"
+                  },
+                  "state": {
+                    "serialized": {
+                      "nodes": [
+                        {
+                          "kind": "block",
+                          "type": "PARAGRAPH/PARAGRAPH",
+                          "nodes": [
+                            {
+                              "kind": "text",
+                              "text": "【以理论指导实践，达到思想的升华】\r"
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "block",
+                          "type": "PARAGRAPH/PARAGRAPH",
+                          "nodes": [
+                            {
+                              "kind": "text",
+                              "text": "井冈山精神、井冈山斗争史、中中央苏区斗争史、党性修养、领导科学与艺术、贯彻落实科学发展观与红色管理等方面的100多个专题教学课程，权威专家团授课，深刻学习井冈山核心精神，领悟毛泽东的领军之道。"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
               }
             ]
           }

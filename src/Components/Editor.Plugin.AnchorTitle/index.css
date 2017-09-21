@@ -1,0 +1,8 @@
+.anchor-title {
+  outline: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  -webkit-user-modify: read-only;
+  padding: 5px; }
+  .anchor-title h2 {
+    margin: 0; }

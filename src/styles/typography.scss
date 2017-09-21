@@ -191,6 +191,22 @@
   .editable-area blockquote {
     font-size: 1em;
     font-style: italic;
-    padding: 0 2.5em;
+    // padding: 0 2.5em;
+    margin:0 2.5rem 0.5rem;
+    position: relative;
+    &:before{
+      content:'“';
+      font-size: 24px;
+      position: absolute;
+      top:0;
+      left:0;
+    }
+    &:after{
+      content:'”';
+      font-size: 24px;
+      position: absolute;
+      bottom:0;
+      right: 0;
+    }
   }
   

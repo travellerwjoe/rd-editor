@@ -1,0 +1,24 @@
+.anchor-title{
+    outline:none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    -webkit-user-modify: read-only;
+    padding:5px;
+    h2{
+        margin:0;
+    }
+}
+
+.anchor-nav{
+    position: fixed;
+    top:300px;
+    left:200px;
+    background: #fff;
+    padding:0 10px;
+    .anchor-nav-list{
+        list-style: none;
+        li{
+            margin:10px 0;
+        }
+    }
+}
