@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Editor, { Editable, createEmptyState } from 'ory-editor-core'
-import 'ory-editor-core/lib/index.css'
+import Editor, { Editable, createEmptyState } from '../Editor.Core'
+// import 'ory-editor-core/lib/index.css'
 
 import { Trash, DisplayModeToggle, Toolbar, Header } from '../Editor.UI'
 import slate from '../Editor.Plugin.Slate'

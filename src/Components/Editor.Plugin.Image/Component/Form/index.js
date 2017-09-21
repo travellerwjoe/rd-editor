@@ -7,6 +7,8 @@ import type { PropTypes } from '../index.js'
 
 import { BottomToolbar } from 'ory-editor-ui'
 
+import { triggerEvent } from '@/helpers/event'
+
 
 class Form extends React.Component {
   state = {
@@ -17,6 +19,11 @@ class Form extends React.Component {
   }
   handleChange = (onChange: Function) => (e: Event) => {
     const target = e.target
+
+    this.setState({
+      value: target.value
+    })
+
     if (target instanceof HTMLInputElement) {
       onChange({ src: target.value })
       return
@@ -26,7 +33,13 @@ class Form extends React.Component {
     this.setState({
       value
     })
+
+    this.props.onChange({ src: value })
   }
+  componentDidUpdate(prevProps, prevState) {
+    console.log(prevState, this.state)
+  }
+
   render() {
     return (
       <div>
@@ -42,7 +55,13 @@ class Form extends React.Component {
             value={this.state.value}
             onChange={this.handleChange(this.props.onChange)}
           />
-          <UploaderDialogToggle onConfirm={this.handleConfirm} />
+          <UploaderDialogToggle
+            type="Button"
+            buttonProps={{
+              label: '选择图片'
+            }}
+            onConfirm={this.handleConfirm}
+          />
         </BottomToolbar>
       </div>
     )

@@ -104,18 +104,41 @@ class Uploader extends Component {
         const el = e.currentTarget
         const img = el.getElementsByTagName('img')[0]
         const src = img.src
-        let status = 'select'
+        let status
 
-        el.classList.toggle('uploader-selected')
 
-        if (!el.classList.contains('uploader-selected')) {
-            this.selectedFileCount++
+        //单选文件
+        if (!this.props.multipleSelect) {
+            this.selectSingleFile(e, src)
         } else {
-            status = 'unselect'
-            this.selectedFileCount--
+            //多选文件
+            el.classList.toggle('uploader-selected')
+
+            if (!el.classList.contains('uploader-selected')) {
+                status = 'selected'
+                this.selectedFileCount++
+            } else {
+                status = 'unselect'
+                this.selectedFileCount--
+            }
         }
 
-        typeof this.props.onSelectFile === 'function' && this.props.onSelectFile(e, src, status, this.selectedFileCount)
+        typeof this.props.onSelectFile === 'function' && this.props.onSelectFile(e, src, this.selectedFileCount, status)
+    }
+
+    selectSingleFile = (e, value) => {
+        const isSelected = e.currentTarget.classList.contains('uploader-selected')
+        document.querySelectorAll('.uploader-selected').forEach(el => {
+            el.classList.remove('uploader-selected')
+        })
+        if (isSelected) {
+            this.selectedFileCount = 0
+            // e.target.classList.remove('uploader-selected')
+        } else {
+            e.currentTarget.classList.add('uploader-selected')
+            this.selectedFileCount = 1
+        }
+
     }
 
     deleteFile = (e, index) => {
@@ -171,46 +194,49 @@ class Uploader extends Component {
     }
 
     render() {
+        const cols = 0.4
         return (
             <div className="uploader" style={{ marginTop: 10 }}>
                 <GridList>
                     {
-                        this.state.files.map((item, index) => (
-                            <GridTile
-                                key={index}
-                                title={item.title}
-                                cols={0.25}
-                                onClick={this.selectFile}
-                                onMouseOver={this.hoverFile}
-                                onMouseOut={this.leaveFile}
-                            >
-                                <img src={`${item.img}`} />
-                                <div className="uploader-delete">
-                                    <FontIcon
-                                        className="uploader-delete material-icons"
-                                        color={white}
-                                        style={{ cursor: 'pointer', marginTop: 5 }}
-                                        onClick={(e) => this.deleteFile(e, index)}
-                                    >
-                                        delete_forever
-                                    </FontIcon>
-                                </div>
-                            </GridTile>
-                        ))
+                        this.state.files.map((item, index) => {
+                            return (
+
+                                <GridTile
+                                    key={index}
+                                    title={item.title}
+                                    cols={cols}
+                                    actionIcon={
+                                        <FontIcon
+                                            className="material-icons"
+                                            color={white}
+                                            style={{ cursor: 'pointer', marginTop: 5 }}
+                                            onClick={(e) => this.deleteFile(e, index)}
+                                        >delete_forever
+                                        </FontIcon>
+                                    }
+                                    onClick={this.selectFile}
+                                    onMouseOver={this.hoverFile}
+                                    onMouseOut={this.leaveFile}
+                                >
+                                    <img src={`${item.img}`} />
+                                </GridTile>
+                            )
+                        })
                     }
                     {
                         this.state.filesTmp.map((item, index) => (
                             <GridTile
                                 key={index}
                                 //title={item.title}
-                                cols={0.25}
+                                cols={cols}
                             >
                                 <img src={`${item}`} />
                             </GridTile>
                         ))
                     }
                     <GridTile
-                        cols={0.25}
+                        cols={cols}
                     >
                         <div className="uploader-append">
                             <svg viewBox="0 0 24 24" style={{ color: '#aaa', fill: 'currentcolor' }}>
@@ -228,12 +254,14 @@ class Uploader extends Component {
 Uploader.propTypes = {
     server: React.PropTypes.string, // 服务器上传地址
     multiple: React.PropTypes.bool, //多文件上传
+    multipleSelect: React.PropTypes.bool, //文件可否多选
     onSelectFile: React.PropTypes.func, //选中已上传文件事件
     onDeleteFile: React.PropTypes.func //删除已上传文件事件
 }
 
 Uploader.defaultProps = {
-    multiple: true
+    multiple: true,
+    multipleSelect: true
 }
 
 export default Uploader;

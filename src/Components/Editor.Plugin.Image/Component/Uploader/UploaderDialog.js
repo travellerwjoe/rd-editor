@@ -47,13 +47,14 @@ class UploaderDialog extends Component {
 
     handleConfirm = (e) => {
         this.setState({
-            open: false
+            open: false,
+            canConfirm: false
         })
         typeof this.props.onClose === 'function' && this.props.onClose()
         typeof this.props.onConfirm === 'function' && this.props.onConfirm(e, this.selected)
     }
 
-    handleSelectFile = (e, value, status, selectedCount) => {
+    handleSelectFile = (e, value, selectedCount, status) => {
         this.setState({
             canConfirm: !!selectedCount
         })
@@ -85,9 +86,10 @@ class UploaderDialog extends Component {
                     //modal={true}
                     onRequestClose={this.handleClose}
                     autoScrollBodyContent={true}
-                    contentStyle={{ width: '70%', maxWidth: 'none' }}
+                    contentStyle={{ width: '50%', maxWidth: 'none' }}
                 >
                     <Uploader
+                        multipleSelect={false}
                         onSelectFile={this.handleSelectFile}
                     />
                 </Dialog>

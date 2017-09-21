@@ -4,6 +4,7 @@ import TextField from 'material-ui/TextField'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
 import Provider from '../Provider'
+import { UploaderDialogToggle } from '@/Components/Editor.Plugin.Image/Component/Uploader'
 import './index.css'
 
 const HeaderTextField = (props) => {
@@ -16,6 +17,7 @@ const HeaderTextField = (props) => {
             hintText={props.placeholder}
             hintStyle={{ color: 'rgba(255,255,255,0.7)' }}
             underlineFocusStyle={{ borderBottom: '2px solid #fff' }}
+            inputStyle={{ color: '#fff' }}
         />
     )
 }
@@ -49,6 +51,7 @@ class HeaderSelectField extends Component {
     }
 }
 
+
 const headerElements = (
     <div className="header-elements">
         <HeaderTextField
@@ -62,6 +65,18 @@ const headerElements = (
         <HeaderSelectField>
             {items}
         </HeaderSelectField>
+        <UploaderDialogToggle
+            type="Text"
+            textProps={{
+                floatingLabelText: '封面图片',
+                floatingLabelFixed: true,
+                floatingLabelStyle: { color: '#fff' },
+                hintText: "点击选择图片",
+                hintStyle: { color: 'rgba(255,255,255,0.7)' },
+                inputStyle: { color: '#fff' }
+            }}
+            inline={true}
+        />
     </div>
 )
 
