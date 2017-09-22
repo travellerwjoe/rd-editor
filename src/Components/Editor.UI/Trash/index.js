@@ -3,10 +3,10 @@ import React from 'react'
 import { DropTarget as dropTarget } from 'react-dnd'
 import Delete from 'material-ui/svg-icons/action/delete'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
-import { Editor } from 'ory-editor-core/lib'
+import { Editor } from '@/Components/Editor.Core'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
-import { removeCell } from 'ory-editor-core/lib/actions/cell/core'
+import { removeCell } from '@/Components/Editor.Core/actions/cell/core'
 import throttle from 'lodash.throttle'
 import {
   isEditMode,
@@ -37,7 +37,7 @@ const target = {
       // If the item drop occurred deeper down the tree, don't do anything
       return
     }
-
+    console.log('remove')
     props.removeCell(item.id)
   }
 }

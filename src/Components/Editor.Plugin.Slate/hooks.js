@@ -11,7 +11,7 @@ import React from 'react'
 import type { Props } from './Component'
 import AlignmentPlugin from './plugins/alignment'
 import BlockquotePlugin from './plugins/blockquote'
-// import CodePlugin from './plugins/code'
+import CodePlugin from './plugins/code'
 import EmphasizePlugin from './plugins/emphasize'
 import HeadingsPlugin from './plugins/headings'
 import LinkPlugin from './plugins/link'
@@ -29,7 +29,7 @@ export const defaultPlugins = [
   new EmphasizePlugin(),
   new HeadingsPlugin({ DEFAULT_NODE }),
   new LinkPlugin(),
-  // new CodePlugin({ DEFAULT_NODE }),
+  new CodePlugin({ DEFAULT_NODE }),
   new ListsPlugin({ DEFAULT_NODE }),
   new BlockquotePlugin({ DEFAULT_NODE }),
   new AlignmentPlugin()

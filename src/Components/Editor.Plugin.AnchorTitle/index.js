@@ -7,13 +7,29 @@ import reducers from './reducers'
 
 const store = createStore(reducers)
 
-const Component = (props) => {
+/* const Component = (props) => {
     const children = props.nav ? <Nav {...props} /> : <AnchorTitle {...props} />
     return (
         <Provider store={store}>
             {children}
         </Provider>
     )
+} */
+
+class Component extends React.Component {
+    constructor(props) {
+        super(props)
+        console.log('component')
+    }
+    render() {
+        const props = this.props
+        const children = props.nav ? <Nav {...props} /> : <AnchorTitle {...props} />
+        return (
+            <Provider store={store}>
+                {children}
+            </Provider>
+        )
+    }
 }
 
 export const AnchorNav = (props) => <Component nav={true} />

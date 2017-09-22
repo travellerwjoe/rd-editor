@@ -30,8 +30,8 @@ class AnchorNav extends Component {
     }
     navigate = (e, id) => {
         const target = document.querySelector(`.anchor-title[name='${id}']`)
-        const top = document.documentElement.scrollTop + target.getBoundingClientRect().top
-        console.log(top)
+        const top = (document.documentElement.scrollTop || document.body.scrollTop) + target.getBoundingClientRect().top
+
         window.scrollTo(0, top)
     }
     componentWillUpdate(nextProps, nextState) {
@@ -53,6 +53,7 @@ class AnchorNav extends Component {
             )
         }
         return (
+
             <div className="anchor-nav">
                 <ul className="anchor-nav-list">
                     {lis}

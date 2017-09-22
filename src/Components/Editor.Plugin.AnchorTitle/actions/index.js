@@ -5,3 +5,9 @@ export const addAnchorNav = navData => {
     }
 }
 
+export const delAnchorNav = id => {
+    return {
+        type: 'DEL_ANCHOR_NAV',
+        id
+    }
+}

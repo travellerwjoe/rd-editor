@@ -3,7 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import { deepPurple400, orange500 } from 'material-ui/styles/colors'
 import { connect } from 'react-redux'
-import { addAnchorNav } from '../actions'
+import { addAnchorNav, delAnchorNav } from '../actions'
 
 let count = 0
 
@@ -18,16 +18,21 @@ const mapDispatchToProps = dispatch => {
 class AnchorTitle extends Component {
     constructor(props) {
         super(props)
-        console.log('anchorTitle')
     }
     componentWillMount() {
+        console.log('anchorTitle')        
         const {
             onAddAnchorNav,
             id,
         } = this.props
-        onAddAnchorNav({
+        this.props.dispatch(addAnchorNav({
             [id]: this.state.value
-        })
+        }))
+    }
+    componentWillUnmount() {
+        // console.log('unmount', this)
+        // const { id } = this.props
+        // this.props.dispatch(delAnchorNav(id))
     }
     state = {
         value: this.props.state.value || (() => {
@@ -45,13 +50,12 @@ class AnchorTitle extends Component {
             dispatch,
             id
         } = this.props
-        /* dispatch(addAnchorNav({
-            id,
-            title: content
-        })) */
-        this.props.onAddAnchorNav({
+        this.props.dispatch(addAnchorNav({
             [id]: content
-        })
+        }))
+        /* this.props.onAddAnchorNav({
+            [id]: content
+        }) */
     }
     render() {
         const {
@@ -89,6 +93,6 @@ class AnchorTitle extends Component {
     }
 }
 
-AnchorTitle = connect(null, mapDispatchToProps)(AnchorTitle)
+AnchorTitle = connect()(AnchorTitle)
 
 export default AnchorTitle;

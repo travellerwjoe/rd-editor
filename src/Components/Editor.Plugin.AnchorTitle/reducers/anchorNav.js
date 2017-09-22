@@ -4,7 +4,12 @@ const anchorNav = (state = {}, action) => {
             for (const key in action.navData) {
                 state[key] = action.navData[key]
             }
-            return {...state}
+            return { ...state }
+        case 'DEL_ANCHOR_NAV':
+            if (action.id) {
+                delete state[action.id]
+            }
+            return { ...state }
         default:
             return state
     }
