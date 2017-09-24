@@ -3,7 +3,7 @@ import React from 'react'
 import Editor, { Editable, createEmptyState } from '../Editor.Core'
 // import 'ory-editor-core/lib/index.css'
 
-import { Trash, DisplayModeToggle, Toolbar, Header } from '../Editor.UI'
+import { Trash, DisplayModeToggle, Toolbar, Header, PreviewTabs } from '../Editor.UI'
 import slate from '../Editor.Plugin.Slate'
 
 import image from '../Editor.Plugin.Image'
@@ -70,6 +70,7 @@ export const RDControls = (props) => {
             <Toolbar editor={editor} />
             <Header editor={editor} onSave={props.onSave} />
             <AnchorNav editor={editor} />
+            <PreviewTabs editor={editor} />
         </div>
     )
 }

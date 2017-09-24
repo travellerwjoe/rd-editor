@@ -84,7 +84,8 @@ export const HTMLRenderer = ({
     tools
 }: {
         state: any,
-        plugins: { layout: [], content: [] }
+        plugins: { layout: [], content: [] },
+        tools: {}
     }) => {
     const service = new PluginService(plugins)
     const props = reducer(service.unserialize(state), { type: 'renderer/noop' })

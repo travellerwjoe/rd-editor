@@ -15,7 +15,6 @@ const getAnchorTitleState = () => {
     return function each(state) {
         state.forEach(item => {
             const {
-            id,
                 cells,
                 rows,
                 content
