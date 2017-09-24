@@ -15,6 +15,8 @@ const store = createStore(reducers)
         </Provider>
     )
 } */
+const generateRandomID = (len) => Array.apply(null, Array(len)).map(item => 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'[parseInt(Math.random() * 62)]).join('')
+
 
 class Component extends React.Component {
     constructor(props) {
@@ -42,7 +44,10 @@ export default {
     text: '锚点标题',
     isInlineable: true,
     description: '创建锚点菜单标题',
-    createInitialState: () => ({ value: `锚点标题${document.querySelectorAll('.anchor-title').length + 1}` }),
+    createInitialState: () => ({
+        value: `锚点标题${document.querySelectorAll('.anchor-title').length + 1}`,
+        id: `anchor-${generateRandomID(6)}`
+    }),
     handleRemoveHotKey: (e, { content: { state: { value } } }) => {
         return new Promise(
             (resolve, reject) => {

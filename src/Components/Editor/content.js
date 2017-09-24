@@ -43,42 +43,10 @@ export default [
             ]
           },
           {
-            "id": "3cb82f56-7b33-4eae-91e7-b0aa63fbb473",
+            "id": "d8464736-8ed4-4784-904d-262d42547d0f",
             "cells": [
               {
-                "id": "047f63e2-b6e4-411b-b539-c6af6c813af9",
-                "inline": null,
-                "size": 12,
-                "content": {
-                  "plugin": {
-                    "name": "slate",
-                    "version": "0.0.1"
-                  },
-                  "state": {
-                    "serialized": {
-                      "nodes": [
-                        {
-                          "kind": "block",
-                          "type": "HEADINGS/HEADING-TWO",
-                          "nodes": [
-                            {
-                              "kind": "text",
-                              "text": "学院介绍"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "id": "22673272-b830-4915-a8c3-b60a5d07821c",
-            "cells": [
-              {
-                "id": "366c5375-9c5e-4360-9aad-b885b159fc40",
+                "id": "262c900c-17e0-4088-8e4a-36ca2cbb2e4f",
                 "inline": null,
                 "size": 12,
                 "content": {
@@ -87,14 +55,15 @@ export default [
                     "version": "0.0.1"
                   },
                   "state": {
-                    "value": "33442455455"
+                    "value": "学院介绍",
+                    "id": "anchor-7CTmjl"
                   }
                 }
               }
             ]
           },
           {
-            "id": "c75430f2-590d-46b3-b277-23aa2d1be5a5",
+            "id": "528262d0-924c-4695-98a1-47fc72653d57",
             "cells": [
               {
                 "id": "5264b054-014a-4e1a-b616-c73eefd28d11",
@@ -166,32 +135,20 @@ export default [
             ]
           },
           {
-            "id": "c546f6d6-6382-4c33-bb6f-758b39b0fb3d",
+            "id": "2cde510c-9d84-4b38-a9e2-113c44879ea8",
             "cells": [
               {
-                "id": "8011cc82-83c9-4b34-a93d-799b6a72daf0",
+                "id": "abd54d61-4088-427d-874f-df07c3b5f976",
                 "inline": null,
                 "size": 12,
                 "content": {
                   "plugin": {
-                    "name": "slate",
+                    "name": "AnchorTitle",
                     "version": "0.0.1"
                   },
                   "state": {
-                    "serialized": {
-                      "nodes": [
-                        {
-                          "kind": "block",
-                          "type": "HEADINGS/HEADING-TWO",
-                          "nodes": [
-                            {
-                              "kind": "text",
-                              "text": "培训模式"
-                            }
-                          ]
-                        }
-                      ]
-                    }
+                    "value": "培训模式",
+                    "id": "anchor-aAJN4w"
                   }
                 }
               }

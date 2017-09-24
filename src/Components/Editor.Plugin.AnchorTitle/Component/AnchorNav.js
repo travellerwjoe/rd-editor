@@ -28,8 +28,7 @@ const getAnchorTitleState = () => {
             }
             if (content && content.plugin.name === 'AnchorTitle') {
                 allAnchorTitleState.push({
-                    id,
-                    value: content.state.value,
+                    ...content.state
                 })
             }
         })
@@ -79,15 +78,17 @@ class AnchorNav extends Component {
     allAnchorTitleState
     constructor(props) {
         super(props)
-        const editorState = props.editor.store.getState()
+        console.log('AnchorNav', props)
+        const editorState = props.editor ? props.editor.store.getState().editables.present : props.cells
         console.time('each')
-        this.allAnchorTitleState = getAnchorTitleState()(editorState.editables.present)
+        this.allAnchorTitleState = getAnchorTitleState()(editorState)
         console.timeEnd('each')
+        console.log(this.allAnchorTitleState)
 
         const scroll = () => {
             const scrollTop = window.scrollY,
                 titleEl = document.querySelectorAll('.anchor-title')
-                
+
             for (let i = titleEl.length - 1; i >= 0; i--) {
                 const item = titleEl[i]
 
@@ -105,7 +106,7 @@ class AnchorNav extends Component {
                 }
             }
         }
-        window.addEventListener('scroll', throttle(scroll, 125, 250))
+        window.addEventListener('scroll', scroll)
     }
     navigate = (e, id) => {
         const target = document.querySelector(`.anchor-title[name='${id}']`)

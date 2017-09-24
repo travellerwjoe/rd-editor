@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom'
 import 'babel-polyfill'
 import './index.css'
 // import App from './App'
-import Editable, { RDEditor, RDControls, RDHTMLRenderer } from './Components/Editor'
+import Editable, { RDEditor, RDControls } from './Components/Editor'
 import registerServiceWorker from './registerServiceWorker'
 
 let allState = {}
 
-const save = () => {
+const onSave = () => {
     console.log(JSON.stringify(allState, null, 4))
 }
 
@@ -24,7 +24,7 @@ for (const element of elements) {
         element)
 }
 
-ReactDOM.render((<div><RDControls /><button id="save" onClick={save}>保存</button></div>), document.getElementById('controls'))
+ReactDOM.render(<RDControls onSave={onSave}/>, document.getElementById('controls'))
 
 // ReactDOM.render(<RDHTMLRenderer />, document.getElementById('editable-static'))
 

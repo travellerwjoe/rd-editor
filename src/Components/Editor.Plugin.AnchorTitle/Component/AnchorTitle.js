@@ -15,10 +15,11 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
+
 class AnchorTitle extends Component {
     constructor(props) {
         super(props)
-        console.log(props)
+        console.log('AnchorTitle', props)
     }
     componentWillMount() {
         const {
@@ -34,12 +35,14 @@ class AnchorTitle extends Component {
         dispatch(delAnchorNav(id))
     }
     state = {
-        value: this.props.state.value
+        value: this.props.state.value,
+        id: this.props.state.id
     }
     handleChange = e => {
         const content = e.target.textContent
         this.props.onChange({
-            value: content
+            value: content,
+            id: this.state.id
         })
 
         const { dispatch, id } = this.props
@@ -53,8 +56,7 @@ class AnchorTitle extends Component {
     render() {
         const {
             state: { value },
-            readOnly,
-            id
+            readOnly
         } = this.props
 
         return (
@@ -75,7 +77,7 @@ class AnchorTitle extends Component {
                     ></span>
                     <div
                         className="anchor-title"
-                        name={id}
+                        name={this.state.id}
                         contentEditable={!readOnly}
                         style={{ WebkitUserModify: readOnly ? 'read-only' : 'read-write-plaintext-only' }}
                         onKeyUp={this.handleChange}

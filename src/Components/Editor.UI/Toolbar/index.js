@@ -2,16 +2,16 @@
 import React, { Component } from 'react'
 import Drawer from 'material-ui/Drawer'
 import { connect } from 'react-redux'
-import { isInsertMode } from 'ory-editor-core/lib/selector/display'
+import { isInsertMode } from '#/Editor.Core/selector/display'
 import { createStructuredSelector } from 'reselect'
-import { Editor } from 'ory-editor-core/lib'
+import { Editor } from '#/Editor.Core'
 import List from 'material-ui/List/List'
 import Subheader from 'material-ui/Subheader'
 import TextField from 'material-ui/TextField'
 import {
   LayoutPlugin,
   ContentPlugin
-} from 'ory-editor-core/lib/service/plugin/classes'
+} from '#/Editor.Core/service/plugin/classes'
 import Item from './Item'
 import Provider from '../Provider'
 
@@ -73,7 +73,7 @@ class Raw extends Component {
 
     return (
       <Drawer className="ory-toolbar-drawer" open={isInsertMode}>
-        <Subheader>添加组件或布局</Subheader>
+        <Subheader>添加组件</Subheader>
         <div style={{ padding: '0 16px' }} ref={this.onRef}>
           <TextField
             hintText="搜索组件"

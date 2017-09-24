@@ -1,16 +1,16 @@
 // @flow
 import React, { Component } from 'react'
-import { shouldPureComponentUpdate } from 'ory-editor-core/lib/helper/shouldComponentUpdate'
+import { shouldPureComponentUpdate } from '#/Editor.Core/helper/shouldComponentUpdate'
 import { DragSource as dragSource } from 'react-dnd'
 import { source, collect } from './helper'
 import classNames from 'classnames'
 import { connect } from 'react-redux'
-import { clearHover } from 'ory-editor-core/lib/actions/cell/drag'
+import { clearHover } from '#/Editor.Core/actions/cell/drag'
 import {
   insertMode,
   editMode,
   layoutMode
-} from 'ory-editor-core/lib/actions/display'
+} from '#/Editor.Core/actions/display'
 
 const instances = {}
 

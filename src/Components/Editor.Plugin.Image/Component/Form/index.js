@@ -5,7 +5,7 @@ import TextField from 'material-ui/TextField'
 import { UploaderDialogToggle } from '../Uploader'
 import type { PropTypes } from '../index.js'
 
-import { BottomToolbar } from 'ory-editor-ui'
+import { BottomToolbar } from '#/Editor.UI'
 
 import { triggerEvent } from '@/helpers/event'
 

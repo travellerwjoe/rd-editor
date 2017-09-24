@@ -3,6 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "promise": "8.0.1",
+    "react": "^15.6.1",
+    "react-dev-utils": "^4.0.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
+    "react-tap-event-plugin": "^2.0.1",
+    "redux": "^3.7.2",
+    "velocity-animate": "^1.5.0",
+    "velocity-react": "^1.3.3"
+  },
+  "scripts": {
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js --env=jsdom",
+    "build-css": "node-sass-chokidar src/styles/ -o src/styles/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/styles/ -o src/styles/ --watch --recursive"
+  },
+  "devDependencies": {
+    "node-sass-chokidar": "0.0.3",
+    "postcss": "^6.0.11",
     "autoprefixer": "7.1.2",
     "babel-core": "6.25.0",
     "babel-eslint": "7.2.3",
@@ -28,36 +48,15 @@
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
     "object-assign": "4.1.1",
-    "ory-editor": "^0.2.24",
-    "ory-editor-plugins-html5-video": "^0.2.24",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.6",
-    "promise": "8.0.1",
-    "react": "^15.6.1",
-    "react-dev-utils": "^4.0.1",
-    "react-dom": "^15.6.1",
-    "react-redux": "^5.0.6",
-    "react-tap-event-plugin": "^2.0.1",
-    "redux": "^3.7.2",
     "style-loader": "0.18.2",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.5.9",
-    "velocity-animate": "^1.5.0",
     "webpack": "3.5.1",
     "webpack-dev-server": "2.7.1",
     "webpack-manifest-plugin": "1.2.1",
     "whatwg-fetch": "2.0.3"
-  },
-  "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom",
-    "build-css": "node-sass-chokidar src/styles/ -o src/styles/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/styles/ -o src/styles/ --watch --recursive"
-  },
-  "devDependencies": {
-    "node-sass-chokidar": "0.0.3",
-    "postcss": "^6.0.11"
   },
   "jest": {
     "collectCoverageFrom": [

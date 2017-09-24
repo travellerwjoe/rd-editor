@@ -3,8 +3,15 @@ import AppBar from 'material-ui/AppBar'
 import TextField from 'material-ui/TextField'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
+import RaisedButton from 'material-ui/RaisedButton'
 import Provider from '../Provider'
-import { UploaderDialogToggle } from '@/Components/Editor.Plugin.Image/Component/Uploader'
+import { UploaderDialogToggle } from '#/Editor.Plugin.Image/Component/Uploader'
+import 'velocity-animate'
+import VelocityComponent from 'velocity-react/velocity-component'
+// import { editables } from '#/Editor.Core/selector/editable'
+import { isPreviewMode } from '#/Editor.Core/selector/display'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
 import './index.css'
 
 const HeaderTextField = (props) => {
@@ -51,34 +58,34 @@ class HeaderSelectField extends Component {
     }
 }
 
+class SaveButton extends Component {
+    constructor(props) {
+        super(props)
+    }
+    onClick = (e) => {
+        typeof this.props.onSave === 'function' && this.props.onSave(e)
+    }
+    render() {
+        return (
+            <RaisedButton
+                label='保存'
+                secondary={true}
+                style={{
+                    lineHeight: '36px',
+                    margin: '20px 15px 0 15px'
+                }}
+                labelStyle={{
+                    verticalAlign: 'top'
+                }}
+                onClick={this.onClick}
+            />
+        )
+    }
+}
 
-const headerElements = (
-    <div className="header-elements">
-        <HeaderTextField
-            title="文章标题"
-            placeholder="请输入文章标题"
-        />
-        <HeaderTextField
-            title="作者"
-            placeholder="请输入文章作者名字"
-        />
-        <HeaderSelectField>
-            {items}
-        </HeaderSelectField>
-        <UploaderDialogToggle
-            type="Text"
-            textProps={{
-                floatingLabelText: '封面图片',
-                floatingLabelFixed: true,
-                floatingLabelStyle: { color: '#fff' },
-                hintText: "点击选择图片",
-                hintStyle: { color: 'rgba(255,255,255,0.7)' },
-                inputStyle: { color: '#fff' }
-            }}
-            inline={true}
-        />
-    </div>
-)
+
+
+
 
 
 class Header extends Component {
@@ -86,8 +93,39 @@ class Header extends Component {
         super(props)
     }
     render() {
+        const headerElements = (
+            <div className="header-elements">
+                <HeaderTextField
+                    title="文章标题"
+                    placeholder="请输入文章标题"
+                />
+                <HeaderTextField
+                    title="作者"
+                    placeholder="请输入文章作者名字"
+                />
+                <HeaderSelectField>
+                    {items}
+                </HeaderSelectField>
+                <UploaderDialogToggle
+                    type="Text"
+                    textProps={{
+                        floatingLabelText: '封面图片',
+                        floatingLabelFixed: true,
+                        floatingLabelStyle: { color: '#fff' },
+                        hintText: "点击选择图片",
+                        hintStyle: { color: 'rgba(255,255,255,0.7)' },
+                        inputStyle: { color: '#fff' }
+                    }}
+                    inline={true}
+                />
+                <SaveButton
+                    onSave={this.props.onSave}
+                />
+            </div>
+        )
+        const animation = this.props.isPreviewMode ? { opacity: 0, translateY: '-75px' } : { opacity: 1, translateY: '0px' }
         return (
-            <Provider {...this.props}>
+            <VelocityComponent animation={animation} duration={500}>
                 <AppBar
                     title={headerElements}
                     titleStyle={{
@@ -99,9 +137,22 @@ class Header extends Component {
                         top: 0
                     }}
                 />
-            </Provider>
+            </VelocityComponent>
         )
     }
 }
+
+const mapStateToProps = createStructuredSelector({
+    isPreviewMode,
+    // editables
+})
+
+const Decorate = connect(mapStateToProps)(Header)
+
+Header = (props) => (
+    <Provider {...props}>
+        <Decorate {...props} />
+    </Provider>
+)
 
 export default Header

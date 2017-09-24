@@ -3,10 +3,10 @@ import React from 'react'
 import { DropTarget as dropTarget } from 'react-dnd'
 import Delete from 'material-ui/svg-icons/action/delete'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
-import { Editor } from '@/Components/Editor.Core'
+import { Editor } from '#/Editor.Core'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
-import { removeCell } from '@/Components/Editor.Core/actions/cell/core'
+import { removeCell } from '#/Editor.Core/actions/cell/core'
 import throttle from 'lodash.throttle'
 import {
   isEditMode,
@@ -14,7 +14,7 @@ import {
   isPreviewMode,
   isInsertMode,
   isResizeMode
-} from 'ory-editor-core/lib/selector/display'
+} from '#/Editor.Core/selector/display'
 import { createStructuredSelector } from 'reselect'
 
 import Provider from '../Provider'

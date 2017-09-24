@@ -5,8 +5,8 @@ import Button from '../Button'
 
 import { connect } from 'react-redux'
 
-import { editMode } from 'ory-editor-core/lib/actions/display'
-import { isEditMode } from 'ory-editor-core/lib/selector/display'
+import { editMode } from '#/Editor.Core/actions/display'
+import { isEditMode } from '#/Editor.Core/selector/display'
 import { createStructuredSelector } from 'reselect'
 
 const Inner = ({

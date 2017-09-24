@@ -75,6 +75,9 @@ module.exports = function(proxy, allowedHost) {
       // Paths with dots should still use the history fallback.
       // See https://github.com/facebookincubator/create-react-app/issues/387.
       disableDotRule: true,
+      rewrites: [
+        { from: /^\/output.html/, to: '/build/output.html' },
+      ]
     },
     public: allowedHost,
     proxy,

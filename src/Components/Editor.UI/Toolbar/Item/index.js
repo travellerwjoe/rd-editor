@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import Avatar from 'material-ui/Avatar'
 import draggable from '../Draggable'
 import ListItem from 'material-ui/List/ListItem'
-import { Plugin } from 'ory-editor-core'
+import { Plugin } from '#/Editor.Core'
 import DragHandle from 'material-ui/svg-icons/editor/drag-handle'
 import Tooltip from 'rc-tooltip'
 
