@@ -7,7 +7,7 @@ import type { ContentPluginProps } from 'ory-editor-core/lib/service/plugin/clas
 
 export default {
   Component,
-  name: 'ory/editor/core/content/image',
+  name: 'image',
   version: '0.0.1',
   IconComponent: <Panorama />,
   text: '图片',

@@ -3,7 +3,7 @@
     white-space: pre-wrap;
     word-wrap: break-word;
     -webkit-user-modify: read-only;
-    padding:5px;
+    padding:5px 0;
     h2{
         margin:0;
     }
@@ -32,6 +32,7 @@
             border-radius: 5px;
             padding:0 10px;
             margin:15px 0;
+            cursor: pointer;
         }
     }
 }

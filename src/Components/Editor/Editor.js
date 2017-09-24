@@ -65,7 +65,7 @@ export const RDControls = () => {
             <DisplayModeToggle editor={editor} />
             <Toolbar editor={editor} />
             <Header editor={editor} />
-            <AnchorNav />
+            <AnchorNav editor={editor} />
         </div>
     )
 }

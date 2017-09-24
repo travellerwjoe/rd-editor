@@ -32,7 +32,7 @@ class Component extends React.Component {
     }
 }
 
-export const AnchorNav = (props) => <Component nav={true} />
+export const AnchorNav = (props) => <Component {...props} nav={true} />
 
 export default {
     Component,
@@ -41,5 +41,17 @@ export default {
     IconComponent: <Title />,
     text: '锚点标题',
     isInlineable: true,
-    description: '创建锚点菜单标题'
+    description: '创建锚点菜单标题',
+    createInitialState: () => ({ value: `锚点标题${document.querySelectorAll('.anchor-title').length + 1}` }),
+    handleRemoveHotKey: (e, { content: { state: { value } } }) => {
+        return new Promise(
+            (resolve, reject) => {
+                console.log(value)
+                return value.length < 1 ? resolve() : reject()
+            }
+        )
+    },
+    handleBlur(props) {
+        console.log('handleBlur', props)
+    }
 }

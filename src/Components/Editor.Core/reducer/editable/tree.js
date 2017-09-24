@@ -264,7 +264,6 @@ export const cells = (state: Cell[] = [], action: Object): Cell[] =>
             .map(inner(cell, action))
 
         case CELL_REMOVE:
-          console.log(state)
           return state
             .filter(({ id }: Cell) => id !== action.id)
             .map(inner(cell, action))

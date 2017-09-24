@@ -16,7 +16,7 @@ export default [
                 "size": 12,
                 "content": {
                   "plugin": {
-                    "name": "ory/editor/core/content/slate",
+                    "name": "slate",
                     "version": "0.0.1"
                   },
                   "state": {
@@ -51,7 +51,7 @@ export default [
                 "size": 12,
                 "content": {
                   "plugin": {
-                    "name": "ory/editor/core/content/slate",
+                    "name": "slate",
                     "version": "0.0.1"
                   },
                   "state": {
@@ -102,7 +102,7 @@ export default [
                 "size": 7,
                 "content": {
                   "plugin": {
-                    "name": "ory/editor/core/content/slate",
+                    "name": "slate",
                     "version": "0.0.1"
                   },
                   "state": {
@@ -155,7 +155,7 @@ export default [
                 "size": 5,
                 "content": {
                   "plugin": {
-                    "name": "ory/editor/core/content/image",
+                    "name": "image",
                     "version": "0.0.1"
                   },
                   "state": {
@@ -174,7 +174,7 @@ export default [
                 "size": 12,
                 "content": {
                   "plugin": {
-                    "name": "ory/editor/core/content/slate",
+                    "name": "slate",
                     "version": "0.0.1"
                   },
                   "state": {
@@ -206,7 +206,7 @@ export default [
                 "size": 12,
                 "content": {
                   "plugin": {
-                    "name": "ory/editor/core/content/slate",
+                    "name": "slate",
                     "version": "0.0.1"
                   },
                   "state": {
@@ -238,7 +238,7 @@ export default [
                 "size": 12,
                 "content": {
                   "plugin": {
-                    "name": "ory/editor/core/content/image",
+                    "name": "image",
                     "version": "0.0.1"
                   },
                   "state": {
@@ -257,7 +257,7 @@ export default [
                 "size": 12,
                 "content": {
                   "plugin": {
-                    "name": "ory/editor/core/content/slate",
+                    "name": "slate",
                     "version": "0.0.1"
                   },
                   "state": {

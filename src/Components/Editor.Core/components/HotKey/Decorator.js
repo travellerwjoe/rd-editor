@@ -74,6 +74,7 @@ let wasInitialized = false
 
 class Decorator extends Component {
   componentDidMount() {
+    console.log('Decorator',this.props)
     if (!wasInitialized) {
       if (!Mousetrap) {
         return
@@ -87,6 +88,7 @@ class Decorator extends Component {
       Mousetrap.bind(['del', 'backspace'], this.handlers.remove)
       Mousetrap.bind(['down', 'right'], this.handlers.focusNext)
       Mousetrap.bind(['up', 'left'], this.handlers.focusPrev)
+      // Mousetrap.bind('tab',this.handlers.)
       wasInitialized = true
     }
   }

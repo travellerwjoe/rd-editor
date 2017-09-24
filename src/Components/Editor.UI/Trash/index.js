@@ -37,7 +37,6 @@ const target = {
       // If the item drop occurred deeper down the tree, don't do anything
       return
     }
-    console.log('remove')
     props.removeCell(item.id)
   }
 }

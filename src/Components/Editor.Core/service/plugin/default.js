@@ -16,19 +16,19 @@ const Default = ({
   readOnly ? (
     <div>{value}</div>
   ) : (
-    <textarea
-      style={{ width: '100%' }}
-      value={value}
-      onChange={handleChange(onChange)}
-    />
-  )
+      <textarea
+        style={{ width: '100%' }}
+        value={value}
+        onChange={handleChange(onChange)}
+      />
+    )
 
 export default {
   Component: Default,
-  name: 'ory/editor/core/default',
+  name: 'default',
   version: '0.0.1',
   createInitialState: () => ({
-    value:
-      'This is the default plugin from the core package. To replace it, set the "defaultPlugin" value in the editor config.'
+    value: '默认插件'
+    // 'This is the default plugin from the core package. To replace it, set the "defaultPlugin" value in the editor config.'
   })
 }

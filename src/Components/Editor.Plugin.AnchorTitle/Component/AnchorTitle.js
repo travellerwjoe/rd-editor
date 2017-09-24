@@ -18,27 +18,23 @@ const mapDispatchToProps = dispatch => {
 class AnchorTitle extends Component {
     constructor(props) {
         super(props)
+        console.log(props)
     }
     componentWillMount() {
-        console.log('anchorTitle')        
         const {
             onAddAnchorNav,
-            id,
+            id
         } = this.props
         this.props.dispatch(addAnchorNav({
             [id]: this.state.value
         }))
     }
     componentWillUnmount() {
-        // console.log('unmount', this)
-        // const { id } = this.props
-        // this.props.dispatch(delAnchorNav(id))
+        const { id, dispatch } = this.props
+        dispatch(delAnchorNav(id))
     }
     state = {
-        value: this.props.state.value || (() => {
-            count++
-            return `锚点标题${count}`
-        })()
+        value: this.props.state.value
     }
     handleChange = e => {
         const content = e.target.textContent
@@ -46,11 +42,8 @@ class AnchorTitle extends Component {
             value: content
         })
 
-        const {
-            dispatch,
-            id
-        } = this.props
-        this.props.dispatch(addAnchorNav({
+        const { dispatch, id } = this.props
+        dispatch(addAnchorNav({
             [id]: content
         }))
         /* this.props.onAddAnchorNav({
@@ -66,19 +59,13 @@ class AnchorTitle extends Component {
 
         return (
             <MuiThemeProvider muiTheme={getMuiTheme()}>
-                <div
-                    className="anchor-title"
-                    name={id}
-                    contentEditable={!readOnly}
-                    style={{ WebkitUserModify: readOnly ? 'read-only' : 'read-write-plaintext-only' }}
-                    onBlur={this.handleChange}
-                >
+                <div style={{ position: 'relative' }}>
                     <span
                         style={{
                             display: 'inline-block',
-                            height: '70%',
+                            height: '100%',
                             position: 'absolute',
-                            left: 0,
+                            left: -15,
                             top: 0,
                             bottom: 0,
                             width: 5,
@@ -86,7 +73,15 @@ class AnchorTitle extends Component {
                             background: deepPurple400
                         }}
                     ></span>
-                    <h2>{this.state.value}</h2>
+                    <div
+                        className="anchor-title"
+                        name={id}
+                        contentEditable={!readOnly}
+                        style={{ WebkitUserModify: readOnly ? 'read-only' : 'read-write-plaintext-only' }}
+                        onKeyUp={this.handleChange}
+                    >
+                        <h2>{this.state.value}</h2>
+                    </div>
                 </div>
             </MuiThemeProvider >
         );

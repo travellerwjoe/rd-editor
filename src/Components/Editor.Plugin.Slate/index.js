@@ -101,7 +101,7 @@ export default (plugins: Plugin[] = hooks.defaultPlugins) => {
     Component: Slate,
     StaticComponent,
 
-    name: 'ory/editor/core/content/slate',
+    name: 'slate',
     version: '0.0.1',
     IconComponent: <Subject />,
     text: '文本',

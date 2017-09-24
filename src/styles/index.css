@@ -1485,7 +1485,7 @@ body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2
   white-space: pre-wrap;
   word-wrap: break-word;
   -webkit-user-modify: read-only;
-  padding: 5px; }
+  padding: 5px 0; }
   .anchor-title h2 {
     margin: 0; }
 
@@ -1511,4 +1511,5 @@ body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2
       white-space: nowrap;
       border-radius: 5px;
       padding: 0 10px;
-      margin: 15px 0; }
+      margin: 15px 0;
+      cursor: pointer; }
