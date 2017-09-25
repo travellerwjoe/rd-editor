@@ -3,12 +3,17 @@ import ReactDOM from 'react-dom'
 import 'babel-polyfill'
 import './index.css'
 // import App from './App'
-import Editable, { RDEditor, RDControls } from './Components/Editor'
+import Editable, { RDEditor, RDControls, RDPageHeader } from './Components/Editor'
 import registerServiceWorker from './registerServiceWorker'
 
 let allState = {}
 
-const onSave = () => {
+const onSave = (state) => {
+    const data = {
+        ...state,
+        content: JSON.stringify(allState)
+    }
+    window.parent && typeof window.parent.onSave === 'function' && window.parent.onSave(data)
     console.log(JSON.stringify(allState, null, 4))
 }
 
@@ -24,7 +29,9 @@ for (const element of elements) {
         element)
 }
 
-ReactDOM.render(<RDControls onSave={onSave}/>, document.getElementById('controls'))
+ReactDOM.render(<RDControls onSave={onSave} />, document.getElementById('controls'))
+
+ReactDOM.render(<RDPageHeader />, document.getElementById('pageHeader'))
 
 // ReactDOM.render(<RDHTMLRenderer />, document.getElementById('editable-static'))
 

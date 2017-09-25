@@ -8,41 +8,6 @@ export default [
         "size": 12,
         "rows": [
           {
-            "id": "bcf73694-3793-4e6f-aa52-65cd9388341f",
-            "cells": [
-              {
-                "id": "2e1397c2-608f-4d4b-8188-2951578e6a61",
-                "inline": null,
-                "size": 12,
-                "content": {
-                  "plugin": {
-                    "name": "slate",
-                    "version": "0.0.1"
-                  },
-                  "state": {
-                    "serialized": {
-                      "nodes": [
-                        {
-                          "kind": "block",
-                          "type": "HEADINGS/HEADING-ONE",
-                          "nodes": [
-                            {
-                              "kind": "text",
-                              "text": "人达e家"
-                            }
-                          ],
-                          "data": {
-                            "align": "center"
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            ]
-          },
-          {
             "id": "d8464736-8ed4-4784-904d-262d42547d0f",
             "cells": [
               {

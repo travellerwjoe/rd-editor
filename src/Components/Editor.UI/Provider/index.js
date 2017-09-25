@@ -28,16 +28,19 @@ class Provider extends Component {
   DragDropContext: any
 
   render() {
-    const { editor, children = [] } = this.props
+    const { editor, children = [], store } = this.props
     const DragDropContext = this.DragDropContext
+    const newStore = { ...store, ...editor.store }
+    console.log('Provider',newStore)
+    console.log(newStore.getState())
     return (
-      <ReduxProvider store={editor.store}>
+      <ReduxProvider store={newStore}>
         <DragDropContext>
           <MuiThemeProvider muiTheme={muiTheme}>
             {children}
           </MuiThemeProvider>
         </DragDropContext>
-      </ReduxProvider>
+      </ReduxProvider >
     )
   }
 }

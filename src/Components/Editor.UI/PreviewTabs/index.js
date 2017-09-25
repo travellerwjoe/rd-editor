@@ -68,14 +68,14 @@ class PreviewTabs extends Component {
                         icon={<FontIcon className="material-icons">phone_iphone</FontIcon>}
                         value="iPhone"
                     >
-                        <iframe src="./output.html"></iframe>
+                        {/* <iframe src="./output.html"></iframe> */}
                     </Tab>
                     <Tab
                         label="iPad"
                         icon={<FontIcon className="material-icons">tablet_mac</FontIcon>}
                         value="iPad"
                     >
-                        <iframe src="./output.html"></iframe>
+                        {/* <iframe src="./output.html"></iframe> */}
                     </Tab>
                 </Tabs>
             </VelocityComponent>

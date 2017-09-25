@@ -1415,6 +1415,13 @@ body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2
 .ory-controls-trash.ory-controls-trash-active {
   bottom: 16px; }
 
+.page-header {
+  background: #fff;
+  padding: 10px;
+  text-align: center; }
+  .page-header span {
+    margin: 0 10px; }
+
 .ory-plugins-content-slate-inline-toolbar {
   position: absolute;
   z-index: 1;

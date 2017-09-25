@@ -22,7 +22,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-  <title>RD Editor</title>  
+  <title>RD Editor</title>
 </head>
 
 <body>
@@ -31,10 +31,15 @@
   </noscript>
   <div id="root">
     <div class="container">
+      <div id="pageHeader"></div>
       <div id="editable" class="editable editable-area" data-id="1"></div>
     </div>
     <div id="controls"></div>
+    <iframe id="preview" src="/output.html"></iframe>
   </div>
+  <script>
+    document.domain = location.hostname.replace(/www\./, '')
+  </script>
   <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

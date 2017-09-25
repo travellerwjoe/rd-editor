@@ -3,7 +3,7 @@ import React from 'react'
 import Editor, { Editable, createEmptyState } from '../Editor.Core'
 // import 'ory-editor-core/lib/index.css'
 
-import { Trash, DisplayModeToggle, Toolbar, Header, PreviewTabs } from '../Editor.UI'
+import { Trash, DisplayModeToggle, Toolbar, Header, PreviewTabs, PageHeader } from '../Editor.UI'
 import slate from '../Editor.Plugin.Slate'
 
 import image from '../Editor.Plugin.Image'
@@ -26,11 +26,18 @@ import anchorTitle, { AnchorNav } from '../Editor.Plugin.AnchorTitle'
 
 import { HTMLRenderer } from '../Editor.Renderer'
 
-import content from './content'
+import c from './content'
 import '../../styles/index.css'
 
 require('react-tap-event-plugin')()
 
+let content = c
+
+if (window.parent && window.parent.data) {
+    content = [JSON.parse(window.parent.data.Content)]
+}
+
+console.log(content)
 
 
 const plugins = {
@@ -82,4 +89,8 @@ export const RDHTMLRenderer = () => {
     )
 }
 
-export default Editable
+export const RDPageHeader = () => (
+    <PageHeader editor={editor} />
+)
+
+export default Editable 

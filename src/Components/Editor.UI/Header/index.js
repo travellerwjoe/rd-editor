@@ -4,15 +4,37 @@ import TextField from 'material-ui/TextField'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
 import RaisedButton from 'material-ui/RaisedButton'
-import Provider from '../Provider'
 import { UploaderDialogToggle } from '#/Editor.Plugin.Image/Component/Uploader'
 import 'velocity-animate'
 import VelocityComponent from 'velocity-react/velocity-component'
-// import { editables } from '#/Editor.Core/selector/editable'
-import { isPreviewMode } from '#/Editor.Core/selector/display'
-import { connect } from 'react-redux'
-import { createStructuredSelector } from 'reselect'
+import { connect, Provider } from 'react-redux'
 import './index.css'
+
+import ThemeProvider from '#/Editor.ThemeProvider'
+
+import { createStore } from 'redux'
+import reducer from './reducer'
+import { changeTitle, changeAuthor, changeLocation, changeCover } from './actions'
+
+let initialState = {
+    title: '',
+    author: '',
+    location: '',
+    cover: ''
+}
+
+if (window.parent && window.parent.data) {
+    const { Headline, Author, ProvinceName, CoverUrl } = window.parent.data
+    initialState = {
+        title: Headline,
+        author: Author,
+        location: ProvinceName,
+        cover: CoverUrl
+    }
+}
+console.log(initialState)
+
+export let store = createStore(reducer, initialState)
 
 const HeaderTextField = (props) => {
     return (
@@ -25,6 +47,8 @@ const HeaderTextField = (props) => {
             hintStyle={{ color: 'rgba(255,255,255,0.7)' }}
             underlineFocusStyle={{ borderBottom: '2px solid #fff' }}
             inputStyle={{ color: '#fff' }}
+            value={props.value}
+            onChange={props.onChange}
         />
     )
 }
@@ -38,7 +62,13 @@ class HeaderSelectField extends Component {
     state = {
         value: this.props.value || null
     }
-    handleChange = (e, index, value) => this.setState({ value })
+    constructor(props) {
+        super(props)
+    }
+    handleChange = (e, index, value) => {
+        this.setState({ value })
+        typeof this.props.onChange === 'function' && this.props.onChange(e, index, value)
+    }
     render() {
         return (
             <SelectField
@@ -63,7 +93,7 @@ class SaveButton extends Component {
         super(props)
     }
     onClick = (e) => {
-        typeof this.props.onSave === 'function' && this.props.onSave(e)
+        typeof this.props.onSave === 'function' && this.props.onSave(store.getState())
     }
     render() {
         return (
@@ -89,21 +119,55 @@ class SaveButton extends Component {
 
 
 class Header extends Component {
+    state = {
+        isPreviewMode: this.props.editor.store.getState().display.mode === 'preview'
+    }
     constructor(props) {
         super(props)
+        console.log('Header', props)
+        const store = props.editor.store
+        store.subscribe(() => {
+            this.setState({
+                isPreviewMode: store.getState().display.mode === 'preview'
+            })
+        })
+    }
+    changeTitle = (e) => {
+        const { changeTitle } = this.props
+        changeTitle(e.target.value)
+    }
+    changeAuthor = (e) => {
+        const { changeAuthor } = this.props
+        changeAuthor(e.target.value)
+    }
+    changeLocation = (e, index, value) => {
+        const { changeLocation } = this.props
+        changeLocation(value)
+    }
+    changeCover = (e, value) => {
+        const { changeCover } = this.props
+        changeCover(value)
     }
     render() {
+        const { title, author, location, cover } = this.props
         const headerElements = (
             <div className="header-elements">
                 <HeaderTextField
                     title="文章标题"
                     placeholder="请输入文章标题"
+                    value={title}
+                    onChange={this.changeTitle}
                 />
                 <HeaderTextField
                     title="作者"
                     placeholder="请输入文章作者名字"
+                    value={author}
+                    onChange={this.changeAuthor}
                 />
-                <HeaderSelectField>
+                <HeaderSelectField
+                    value={location}
+                    onChange={this.changeLocation}
+                >
                     {items}
                 </HeaderSelectField>
                 <UploaderDialogToggle
@@ -114,16 +178,18 @@ class Header extends Component {
                         floatingLabelStyle: { color: '#fff' },
                         hintText: "点击选择图片",
                         hintStyle: { color: 'rgba(255,255,255,0.7)' },
-                        inputStyle: { color: '#fff' }
+                        inputStyle: { color: '#fff' },
+                        value: cover
                     }}
                     inline={true}
+                    onConfirm={this.changeCover}
                 />
                 <SaveButton
                     onSave={this.props.onSave}
                 />
             </div>
         )
-        const animation = this.props.isPreviewMode ? { opacity: 0, translateY: '-75px' } : { opacity: 1, translateY: '0px' }
+        const animation = this.state.isPreviewMode ? { opacity: 0, translateY: '-75px' } : { opacity: 1, translateY: '0px' }
         return (
             <VelocityComponent animation={animation} duration={500}>
                 <AppBar
@@ -142,16 +208,41 @@ class Header extends Component {
     }
 }
 
-const mapStateToProps = createStructuredSelector({
+/* const mapStateToProps = createStructuredSelector({
     isPreviewMode,
+
     // editables
+}) */
+
+const mapStateToProps = state => ({
+    ...state
 })
 
-const Decorate = connect(mapStateToProps)(Header)
+
+const mapDispatchToProps = dispatch => {
+    return {
+        changeTitle: title => {
+            dispatch(changeTitle(title))
+        },
+        changeAuthor: author => {
+            dispatch(changeAuthor(author))
+        },
+        changeLocation: location => {
+            dispatch(changeLocation(location))
+        },
+        changeCover: cover => {
+            dispatch(changeCover(cover))
+        }
+    }
+}
+
+const Decorate = connect(mapStateToProps, mapDispatchToProps)(Header)
 
 Header = (props) => (
-    <Provider {...props}>
-        <Decorate {...props} />
+    <Provider store={store}>
+        <ThemeProvider>
+            <Decorate {...props} />
+        </ThemeProvider>
     </Provider>
 )
 
