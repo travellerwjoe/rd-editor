@@ -34,22 +34,32 @@ a:hover {
   margin-right: auto;
   margin-left: auto;
   align-items: stretch;
-  margin-top: 100px; }
+  margin-top: 100px;
+  margin-bottom: 100px; }
 
 .output {
   margin-top: 0; }
 
+@media (min-width: 375px) {
+  .container {
+    padding: 0 5px;
+    margin-bottom: 0; } }
+
 @media (min-width: 768px) {
   .container {
-    width: 750px; } }
+    width: 768px;
+    margin-bottom: 0; } }
 
 @media (min-width: 992px) {
   .container {
-    width: 970px; } }
+    width: 970px;
+    padding: 0 18px; } }
 
 @media (min-width: 1200px) {
   .container {
-    width: 1170px; } }
+    width: 1170px;
+    padding: 0 24px;
+    margin-bottom: 100px; } }
 
 .editable, #editable-static {
   padding: 5px; }
@@ -1084,8 +1094,8 @@ body {
   width: 423px;
   position: relative;
   margin: 30px auto;
-  -webkit-transform: scale(0.9);
-  transform: scale(0.9);
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
   box-sizing: border-box; }
   .iphone .device-top, .ipad .device-top {
     padding: 5px 110px 40px;
@@ -1115,7 +1125,7 @@ body {
     border-radius: 50%; }
   .iphone .top-bar, .iphone .bottom-bar, .ipad .top-bar, .ipad .bottom-bar {
     display: block;
-    width: 423px;
+    width: 413px;
     height: 15px;
     border-left: 5px solid #BBB;
     border-right: 5px solid #BBB;
@@ -1131,7 +1141,7 @@ body {
     height: 677px;
     width: 375px;
     margin: 0 auto;
-    border: 2px solid rgba(0, 0, 0, 0.9);
+    border: 2px solid rgba(0, 0, 0, 0.8);
     border-radius: 3px;
     overflow: hidden; }
     .iphone .device-screen > *, .ipad .device-screen > * {
@@ -2449,3 +2459,21 @@ body {
       padding: 0 10px;
       margin: 15px 0;
       cursor: pointer; }
+
+@media (max-width: 800px) {
+  .anchor-nav {
+    width: 100%;
+    left: 0;
+    top: 0;
+    overflow-x: auto; }
+    .anchor-nav .anchor-nav-list {
+      width: max-content; }
+      .anchor-nav .anchor-nav-list li {
+        float: left;
+        margin: 15px 10px;
+        font-size: 16px; } }
+
+@media (max-width: 400px) {
+  .anchor-nav .anchor-nav-list li {
+    margin: 10px 5px;
+    font-size: 14px; } }

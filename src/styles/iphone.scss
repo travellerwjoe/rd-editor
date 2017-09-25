@@ -8,8 +8,8 @@
     width: 423px;
     position: relative;
     margin: 30px auto;
-    -webkit-transform: scale(0.9);
-            transform: scale(0.9);
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
     box-sizing: border-box;
     .device-top {
       padding: 5px 110px 40px;
@@ -44,7 +44,7 @@
     
     .top-bar, .bottom-bar {
       display: block;
-      width: 423px;
+      width: 413px;
       height: 15px;
       border-left: 5px solid #BBB;
       border-right: 5px solid #BBB;
@@ -66,7 +66,7 @@
       height: 677px;
       width: 375px;
       margin: 0 auto;
-      border: 2px solid rgba(0, 0, 0, 0.9);
+      border: 2px solid rgba(0, 0, 0, 0.8);
       border-radius: 3px;
       overflow: hidden;
       >*{

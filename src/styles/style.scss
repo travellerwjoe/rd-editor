@@ -44,27 +44,38 @@ body {
     margin-left: auto;
     align-items: stretch;
     margin-top:100px;
+    margin-bottom: 100px;
   }
 
   .output{
     margin-top:0;
   }
+  @media (min-width: 375px){
+    .container{
+      padding:0 5px;
+      margin-bottom: 0;
+    }
+  }
   
   @media (min-width: 768px) {
     .container {
-      width: 750px;
+      width: 768px;
+      margin-bottom: 0;
     }
   }
   
   @media (min-width: 992px) {
     .container {
       width: 970px;
+      padding: 0 18px;
     }
   }
   
   @media (min-width: 1200px) {
     .container {
       width: 1170px;
+      padding: 0 24px;
+      margin-bottom: 100px;    
     }
   }
   

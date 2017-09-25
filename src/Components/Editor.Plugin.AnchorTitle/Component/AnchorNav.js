@@ -77,12 +77,8 @@ class AnchorNav extends Component {
     allAnchorTitleState
     constructor(props) {
         super(props)
-        console.log('AnchorNav', props)
         const editorState = props.editor ? props.editor.store.getState().editables.present : props.cells
-        console.time('each')
         this.allAnchorTitleState = getAnchorTitleState()(editorState)
-        console.timeEnd('each')
-        console.log(this.allAnchorTitleState)
 
         const scroll = () => {
             const scrollTop = window.scrollY,
@@ -106,23 +102,23 @@ class AnchorNav extends Component {
             }
         }
         window.addEventListener('scroll', scroll)
+
+        //有锚点菜单并且在平板或手机上浏览
+        if(this.allAnchorTitleState.length && document.body.offsetWidth < 800){
+            document.querySelector('.container').style.marginTop = '60px'
+        }
     }
     navigate = (e, id) => {
         const target = document.querySelector(`.anchor-title[name='${id}']`)
         const top = (document.documentElement.scrollTop || document.body.scrollTop) + target.getBoundingClientRect().top - 100
 
-        console.log(top)
         window.Velocity(document.querySelector('html'), 'scroll', { duration: 1000, offset: top + 'px', mobileHA: false })
     }
     componentDidMount() {
-        console.log(this.refs.nav.runAnimation)
     }
     componentWillUpdate(nextProps, nextState) {
         const editorState = nextProps.editor.store.getState()
-        console.time('each')
         this.allAnchorTitleState = getAnchorTitleState()(editorState.editables.present)
-        console.timeEnd('each')
-        console.log(this.allAnchorTitleState)
     }
     render() {
         const lis = this.allAnchorTitleState.map(item => (

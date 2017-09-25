@@ -31,3 +31,21 @@
       padding: 0 10px;
       margin: 15px 0;
       cursor: pointer; }
+
+@media (max-width: 800px) {
+  .anchor-nav {
+    width: 100%;
+    left: 0;
+    top: 0;
+    overflow-x: auto; }
+    .anchor-nav .anchor-nav-list {
+      width: max-content; }
+      .anchor-nav .anchor-nav-list li {
+        float: left;
+        margin: 15px 10px;
+        font-size: 16px; } }
+
+@media (max-width: 400px) {
+  .anchor-nav .anchor-nav-list li {
+    margin: 10px 5px;
+    font-size: 14px; } }
