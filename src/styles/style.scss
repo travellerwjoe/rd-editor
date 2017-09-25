@@ -45,6 +45,10 @@ body {
     align-items: stretch;
     margin-top:100px;
   }
+
+  .output{
+    margin-top:0;
+  }
   
   @media (min-width: 768px) {
     .container {
@@ -100,3 +104,5 @@ body {
     text-decoration: none;
   }
   
+
+  ::-webkit-scrollbar {display:none}

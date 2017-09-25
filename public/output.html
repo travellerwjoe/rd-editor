@@ -30,10 +30,13 @@
     You need to enable JavaScript to run this app.
   </noscript>
   <div id="root">
-    <div class="container">
+    <div class="container output">
       <div id="editable-static" class="editable-area" data-id="1"></div>
     </div>
   </div>
+  <script>
+    document.domain = location.hostname.replace(/www\./, '')
+  </script>
   <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

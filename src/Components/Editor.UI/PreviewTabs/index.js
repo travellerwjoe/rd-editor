@@ -20,15 +20,25 @@ class PreviewTabs extends Component {
         super(props)
     }
     toggleEditor(isPreviewMode, mode) {
-        const editable = document.getElementById('editable')
+        const container = document.getElementById('container')
         const anchorNav = document.querySelector('.anchor-nav')
+        const device = document.getElementById('device')
 
         if (isPreviewMode && mode !== 'PC') {
-            editable.style.display = 'none'
+            container.style.display = 'none'
             anchorNav.style.display = 'none'
+            device.style.display = 'block'
+            if (mode === 'iPhone') {
+                device.classList.remove('ipad')
+                device.classList.add('iphone')
+            } else if (mode === 'iPad') {
+                device.classList.remove('iphone')
+                device.classList.add('ipad')
+            }
         } else {
-            editable.style.display = 'block'
+            container.style.display = 'block'
             anchorNav.style.display = 'block'
+            device.style.display = 'none'
         }
     }
     componentDidMount() {

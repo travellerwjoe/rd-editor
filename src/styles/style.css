@@ -35,6 +35,9 @@ a:hover {
   align-items: stretch;
   margin-top: 100px; }
 
+.output {
+  margin-top: 0; }
+
 @media (min-width: 768px) {
   .container {
     width: 750px; } }
@@ -76,3 +79,6 @@ nav ul li a:hover,
 nav ul li a:active {
   color: #aaa;
   text-decoration: none; }
+
+::-webkit-scrollbar {
+  display: none; }
