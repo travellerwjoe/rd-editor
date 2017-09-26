@@ -3,11 +3,16 @@ import ReactDOM from 'react-dom'
 import 'babel-polyfill'
 import './index.css'
 // import App from './App'
-import { RDHTMLRenderer } from '#/Editor'
+import { RDHTMLRenderer, RDPageHeader } from '#/Editor'
 import registerServiceWorker from './registerServiceWorker'
 
-console.log('output')
+import editor,{ plugins } from '#/Editor/instance'
+import defaultContent from '#/Editor/content'
 
-ReactDOM.render(<RDHTMLRenderer />, document.getElementById('editable-static'))
+let content = defaultContent
+
+ReactDOM.render(<RDHTMLRenderer content={content} plugins={plugins} />, document.getElementById('editable-static'))
+
+ReactDOM.render(<RDPageHeader editor={editor} />, document.getElementById('pageHeader'))
 
 registerServiceWorker()

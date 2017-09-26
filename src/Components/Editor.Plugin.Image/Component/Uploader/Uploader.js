@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 import { GridList, GridTile } from 'material-ui/GridList'
 import FontIcon from 'material-ui/FontIcon'
 import { white } from 'material-ui/styles/colors'
+import axios from 'axios'
+import config from '@/config'
+import uploadedCallback from './uploadedCallback'
+
+const { uploadUrl } = config
 
 const getFiles = () => {
     return JSON.parse(localStorage.getItem('images')) || [
@@ -90,16 +95,34 @@ class Uploader extends Component {
 
         const reader = new FileReader()
         const filesTmp = this.state.filesTmp.slice()
+        const filesState = this.state.files.slice()
 
         files.forEach(file => {
             const reader = new FileReader()
             reader.readAsDataURL(file)
             reader.onload = (e) => {
-                filesTmp.push(e.target.result)
+                /* filesTmp.push(e.target.result)
                 this.setState({
                     filesTmp
+                }) */
+
+                const params = new FormData()
+                params.append('file', file, file.name)
+                axios.post(uploadUrl, params, {
+                    headers: { 'Content-Type': 'multipart/form-data' },
+                    onUploadProgress: (progressEvent) => {
+                        console.log(progressEvent)
+                    }
+                }).then(res => {
+                    const uploadedImg = uploadedCallback(res)
+                    if (!uploadedImg) {
+                        alert('上传失败')
+                    }
+                    filesState.push(uploadedImg)
+                    this.setState({
+                        files: filesState
+                    })
                 })
-                console.log(this.state, filesTmp)
             }
         })
 

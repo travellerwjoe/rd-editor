@@ -75,20 +75,27 @@ const debounce = (func, wait, immediate) => {
 
 class AnchorNav extends Component {
     allAnchorTitleState
+    containerMargin = document.querySelector('.container').offsetTop
+    pageHeaderHeight
     constructor(props) {
         super(props)
         const editorState = props.editor ? props.editor.store.getState().editables.present : props.cells
         this.allAnchorTitleState = getAnchorTitleState()(editorState)
 
+
         const scroll = () => {
             const scrollTop = window.scrollY,
                 titleEl = document.querySelectorAll('.anchor-title')
+
+            if (!this.pageHeaderHeight) {
+                this.pageHeaderHeight = document.getElementById('pageHeader').getBoundingClientRect().height
+            }
 
             for (let i = titleEl.length - 1; i >= 0; i--) {
                 const item = titleEl[i]
 
                 const rect = item.getBoundingClientRect(),
-                    top = (document.documentElement.scrollTop || document.body.scrollTop) + rect.top - 100,
+                    top = (document.documentElement.scrollTop || document.body.scrollTop) + rect.top - 100 + this.containerMargin - this.pageHeaderHeight,
                     name = item.getAttribute('name'),
                     nav = document.querySelector('.anchor-nav')
 
@@ -104,17 +111,19 @@ class AnchorNav extends Component {
         window.addEventListener('scroll', scroll)
 
         //有锚点菜单并且在平板或手机上浏览
-        if(this.allAnchorTitleState.length && document.body.offsetWidth < 800){
+        if (this.allAnchorTitleState.length && document.body.offsetWidth < 800) {
             document.querySelector('.container').style.marginTop = '60px'
         }
     }
     navigate = (e, id) => {
         const target = document.querySelector(`.anchor-title[name='${id}']`)
-        const top = (document.documentElement.scrollTop || document.body.scrollTop) + target.getBoundingClientRect().top - 100
+        // const pageHeaderHeight = document.getElementById('pageHeader').getBoundingClientRect().height
+        const top = (document.documentElement.scrollTop || document.body.scrollTop) + target.getBoundingClientRect().top - 100 + this.containerMargin
 
         window.Velocity(document.querySelector('html'), 'scroll', { duration: 1000, offset: top + 'px', mobileHA: false })
     }
     componentDidMount() {
+
     }
     componentWillUpdate(nextProps, nextState) {
         const editorState = nextProps.editor.store.getState()

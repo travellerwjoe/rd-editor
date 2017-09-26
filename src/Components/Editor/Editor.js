@@ -26,12 +26,20 @@ import anchorTitle, { AnchorNav } from '../Editor.Plugin.AnchorTitle'
 
 import { HTMLRenderer } from '../Editor.Renderer'
 
-import c from './content'
+import defaultContent from './content'
 import '../../styles/index.css'
 
 require('react-tap-event-plugin')()
 
-let content = c
+
+
+let content = defaultContent
+
+/* getData()
+    .then(data => {
+        content = data.Content
+    }) */
+
 
 if (window.parent && window.parent.data) {
     content = [JSON.parse(window.parent.data.Content)]

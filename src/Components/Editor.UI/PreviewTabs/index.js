@@ -25,6 +25,7 @@ class PreviewTabs extends Component {
         const device = document.getElementById('device')
 
         if (isPreviewMode && mode !== 'PC') {
+            container.style.marginTop = '50px'
             container.style.display = 'none'
             anchorNav.style.display = 'none'
             device.style.display = 'block'
@@ -36,6 +37,7 @@ class PreviewTabs extends Component {
                 device.classList.add('ipad')
             }
         } else {
+            container.style.marginTop = '100px'            
             container.style.display = 'block'
             anchorNav.style.display = 'block'
             device.style.display = 'none'
