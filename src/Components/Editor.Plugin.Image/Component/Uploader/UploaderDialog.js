@@ -7,6 +7,7 @@ import Uploader from './Uploader'
 import { deepPurple400, orange500 } from 'material-ui/styles/colors'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import uploadedCallback from './uploadedCallback'
 
 const muiTheme = getMuiTheme({
     palette: {
@@ -67,6 +68,10 @@ class UploaderDialog extends Component {
         })
         this.selected = value
     }
+
+    handleUploadedFile = (res) => {
+        return uploadedCallback(res)
+    }
     render() {
         const actions = [
             <FlatButton
@@ -98,6 +103,7 @@ class UploaderDialog extends Component {
                     <Uploader
                         multipleSelect={false}
                         onSelectFile={this.handleSelectFile}
+                        onUploadedFile={this.handleUploadedFile}
                     />
                 </Dialog>
             </MuiThemeProvider>

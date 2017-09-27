@@ -5,7 +5,6 @@ import FontIcon from 'material-ui/FontIcon'
 import { white } from 'material-ui/styles/colors'
 import axios from 'axios'
 import config from '@/config'
-import uploadedCallback from './uploadedCallback'
 
 const { uploadUrl } = config
 
@@ -53,7 +52,8 @@ class Uploader extends Component {
         multiple: React.PropTypes.bool, //多文件上传
         multipleSelect: React.PropTypes.bool, //文件可否多选
         onSelectFile: React.PropTypes.func, //选中已上传文件事件
-        onDeleteFile: React.PropTypes.func //删除已上传文件事件
+        onDeleteFile: React.PropTypes.func, //删除已上传文件事件
+        onUploadedFile: React.PropTypes.func.isRequired, //已上传文件回掉，需返回上传后的文件对象
     }
 
     static defaultProps = {
@@ -98,14 +98,7 @@ class Uploader extends Component {
         const filesState = this.state.files.slice()
 
         files.forEach(file => {
-            const reader = new FileReader()
-            reader.readAsDataURL(file)
-            reader.onload = (e) => {
-                /* filesTmp.push(e.target.result)
-                this.setState({
-                    filesTmp
-                }) */
-
+            const request = () => {
                 const params = new FormData()
                 params.append('file', file, file.name)
                 axios.post(uploadUrl, params, {
@@ -114,15 +107,37 @@ class Uploader extends Component {
                         console.log(progressEvent)
                     }
                 }).then(res => {
-                    const uploadedImg = uploadedCallback(res)
+                    const uploadedImg = this.props.onUploadedFile(res)
+
                     if (!uploadedImg) {
                         alert('上传失败')
+                        return
                     }
                     filesState.push(uploadedImg)
                     this.setState({
                         files: filesState
                     })
+                    el.value = null
+                }).catch(err => {
+                    el.value = null
+                    alert(err)
                 })
+            }
+
+
+            //预览图片
+            if (FileReader) {
+                const reader = new FileReader()
+                reader.readAsDataURL(file)
+                reader.onload = (e) => {
+                    filesTmp.push(e.target.result)
+                    this.setState({
+                        filesTmp
+                    })
+                    request()
+                }
+            } else {
+                request()
             }
         })
 
@@ -183,7 +198,6 @@ class Uploader extends Component {
         this.setState({
             files
         })
-        localStorage.setItem('images', JSON.stringify(files))
         typeof this.onDeleteFile === 'function' && this.props.onDeleteFile(e, deletedFile)
 
     }
@@ -218,7 +232,8 @@ class Uploader extends Component {
     }
 
     componentWillUpdate(nextProps, nextState) {
-
+        const files = nextState.files
+        localStorage.setItem('images', JSON.stringify(files))
     }
 
     componentDidUpdate(prevProps, prevState) {
