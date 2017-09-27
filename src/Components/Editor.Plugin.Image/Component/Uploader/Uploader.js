@@ -115,7 +115,8 @@ class Uploader extends Component {
                     }
                     filesState.push(uploadedImg)
                     this.setState({
-                        files: filesState
+                        files: filesState,
+                        filesTmp: []
                     })
                     el.value = null
                 }).catch(err => {
@@ -179,9 +180,11 @@ class Uploader extends Component {
 
     selectSingleFile = (e, value) => {
         const isSelected = e.currentTarget.classList.contains('uploader-selected')
-        document.querySelectorAll('.uploader-selected').forEach(el => {
+        const uploaderSelectedEls = document.querySelectorAll('.uploader-selected')
+        for (let i = 0; i < uploaderSelectedEls.length; i++) {
+            const el = uploaderSelectedEls[i]
             el.classList.remove('uploader-selected')
-        })
+        }
         if (isSelected) {
             this.selectedFileCount = 0
             // e.target.classList.remove('uploader-selected')
