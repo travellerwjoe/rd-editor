@@ -101,7 +101,11 @@ class AnchorNav extends Component {
 
                 if (scrollTop >= top) {
                     const target = nav.querySelector(`li[name="${name}"]`)
-                    nav.querySelectorAll('li').forEach(obj => obj.style = null)
+                    const navLis = nav.querySelectorAll('li')
+                    for (let i = 0; i < navLis.length; i++) {
+                        const navLi = navLis[i]
+                        navLi.style = null
+                    }
                     target.style.background = deepPurple400
                     target.style.color = '#fff'
                     break

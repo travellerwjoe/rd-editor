@@ -37,7 +37,7 @@ class AnchorTitle extends Component {
     }
     state = {
         value: this.props.state.value,
-        id: this.props.state.id
+        id: this.props.state.id,
     }
     handleChange = e => {
         const content = e.target.textContent
@@ -70,20 +70,8 @@ class AnchorTitle extends Component {
 
         return (
             <MuiThemeProvider muiTheme={getMuiTheme()}>
-                <div style={{ position: 'relative' }}>
-                    <span
-                        style={{
-                            display: 'inline-block',
-                            height: '100%',
-                            position: 'absolute',
-                            left: -15,
-                            top: 0,
-                            bottom: 0,
-                            width: 5,
-                            margin: 'auto 0',
-                            background: deepPurple400
-                        }}
-                    ></span>
+                <div className="anchor-title-container">
+                    <span className="anchor-title-line"></span>
                     <div
                         className="anchor-title"
                         name={this.state.id}

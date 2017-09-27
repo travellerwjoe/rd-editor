@@ -2427,16 +2427,28 @@ body {
     height: 32px;
     width: 100%; }
 
-.anchor-title {
-  outline: none;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  -webkit-user-modify: read-only;
-  padding: 5px 0;
-  font-size: 22px;
-  font-weight: bold; }
-  .anchor-title h2 {
-    margin: 0; }
+.anchor-title-container {
+  position: relative; }
+  .anchor-title-container .anchor-title-line {
+    display: inline-block;
+    height: 100%;
+    position: absolute;
+    left: -15px;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    margin: auto 0;
+    background: #7e57c2; }
+  .anchor-title-container .anchor-title {
+    outline: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    -webkit-user-modify: read-only;
+    padding: 5px 0;
+    font-size: 22px;
+    font-weight: bold; }
+    .anchor-title-container .anchor-title h2 {
+      margin: 0; }
 
 .anchor-nav {
   position: fixed;
