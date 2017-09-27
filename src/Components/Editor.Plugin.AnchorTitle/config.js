@@ -1,0 +1,1 @@
+export const MAX_NUMBER_OF_WORDS = 50//锚点标题最大字数

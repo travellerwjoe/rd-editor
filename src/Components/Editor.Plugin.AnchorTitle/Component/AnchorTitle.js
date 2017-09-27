@@ -4,6 +4,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import { deepPurple400, orange500 } from 'material-ui/styles/colors'
 import { connect } from 'react-redux'
 import { addAnchorNav, delAnchorNav } from '../actions'
+import { MAX_NUMBER_OF_WORDS } from '../config'
 
 let count = 0
 
@@ -53,6 +54,14 @@ class AnchorTitle extends Component {
             [id]: content
         }) */
     }
+    handleKeyDown = (e) => {
+        const content = e.target.textContent
+        if (e.keyCode !== 8 && content.length >= MAX_NUMBER_OF_WORDS) {
+            e.target.innerHTML = content.substr(0, 50)
+            e.target.blur()
+            return false
+        }
+    }
     render() {
         const {
             state: { value },
@@ -80,9 +89,10 @@ class AnchorTitle extends Component {
                         name={this.state.id}
                         contentEditable={!readOnly}
                         style={{ WebkitUserModify: readOnly ? 'read-only' : 'read-write-plaintext-only' }}
+                        onKeyDown={this.handleKeyDown}
                         onKeyUp={this.handleChange}
                     >
-                        <h2>{this.state.value}</h2>
+                        {this.state.value}
                     </div>
                 </div>
             </MuiThemeProvider >

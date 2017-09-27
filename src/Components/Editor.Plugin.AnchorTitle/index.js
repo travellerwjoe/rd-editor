@@ -56,7 +56,14 @@ export default {
             }
         )
     },
-    handleBlur(props) {
-        console.log('handleBlur', props)
+    handleFocusPreviousHotKey: (e, { content: { state: { value } } }) => {
+        return new Promise((resolve, reject) => {
+            console.log(value)
+        })
+    },
+    handleFocusNextHotKey: (e, { content: { state: { value } } }) => {
+        return new Promise((resolve, reject) => {
+            console.log(value)
+        })
     }
 }

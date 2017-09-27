@@ -3,7 +3,9 @@
   white-space: pre-wrap;
   word-wrap: break-word;
   -webkit-user-modify: read-only;
-  padding: 5px 0; }
+  padding: 5px 0;
+  font-size: 22px;
+  font-weight: bold; }
   .anchor-title h2 {
     margin: 0; }
 
