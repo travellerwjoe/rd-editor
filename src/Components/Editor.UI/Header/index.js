@@ -7,10 +7,11 @@ import RaisedButton from 'material-ui/RaisedButton'
 import { UploaderDialogToggle } from '#/Editor.Plugin.Image/Component/Uploader'
 import 'velocity-animate'
 import VelocityComponent from 'velocity-react/velocity-component'
-import Validator from '../Validator'
-import AlertBar from '../AlertBar'
 import { connect, Provider } from 'react-redux'
+import AlertBar from '../AlertBar'
+import { getNumberOfWordsFromState } from '../helper'
 import './index.css'
+import { MAX_NUMBER_OF_WORDS } from '@/config'
 
 import ThemeProvider from '#/Editor.ThemeProvider'
 
@@ -132,7 +133,6 @@ class Header extends Component {
     }
     constructor(props) {
         super(props)
-        console.log('Header',this.props.editor.store.getState())
         const store = props.editor.store
         store.subscribe(() => {
             this.setState({
@@ -266,6 +266,17 @@ class Header extends Component {
             }
         }
     }
+    alert(msg) {
+        this.setState({
+            errorMsg: msg,
+            alertOpen: true
+        })
+        setTimeout(() => {
+            this.setState({
+                alertOpen: false
+            })
+        }, 4000)
+    }
     onSave = (e) => {
         // const fileds = ['title', 'author', 'location', 'corver']
         const fields = {
@@ -304,17 +315,17 @@ class Header extends Component {
         for (let key in fields) {
             const errorMsg = this.valildate(this.state[key], fields[key], messages[key])
             if (errorMsg) {
-                this.setState({
-                    errorMsg,
-                    alertOpen: true
-                })
-                setTimeout(() => {
-                    this.setState({
-                        alertOpen: false
-                    })
-                }, 4000)
+                this.alert(errorMsg)
                 return
             }
+        }
+
+        const editorState = this.props.editor.store.getState().editables.present
+        const numberOfWords = getNumberOfWordsFromState(editorState)
+
+        if (numberOfWords > MAX_NUMBER_OF_WORDS) {
+            this.alert(`正文最大不要超过${MAX_NUMBER_OF_WORDS}字`)
+            return
         }
 
         typeof this.props.onSave === 'function' && this.props.onSave(e)
