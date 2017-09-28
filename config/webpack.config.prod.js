@@ -65,7 +65,7 @@ module.exports = {
       require.resolve('./polyfills'),
       paths.appOutputJS
     ],
-    // RDEditorRenderer: paths.appRendererJS
+    RDEditorRenderer: paths.appRendererJS
   },
   output: {
     // The build folder.
@@ -284,7 +284,7 @@ module.exports = {
         minifyURLs: true,
       },
     }),
-    /* new HtmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       inject: true,
       chunks: ['RDEditorRenderer'],
       template: paths.appRendererHTML,
@@ -301,7 +301,7 @@ module.exports = {
         minifyCSS: true,
         minifyURLs: true,
       },
-    }), */
+    }),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
     // It is absolutely essential that NODE_ENV was set to production here.

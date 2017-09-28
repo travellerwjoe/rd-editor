@@ -85,7 +85,7 @@ export const RDControls = (props) => {
             <Toolbar editor={editor} />
             <Header editor={editor} onSave={props.onSave} />
             <AnchorNav editor={editor} />
-            <PreviewTabs editor={editor} />
+            <PreviewTabs editor={editor} onSwitchPriview={props.onSwitchPriview} />
         </div>
     )
 }
@@ -97,8 +97,8 @@ export const RDHTMLRenderer = () => {
     )
 }
 
-export const RDPageHeader = () => (
-    <PageHeader editor={editor} />
+export const RDPageHeader = (props) => (
+    <PageHeader editor={editor} onChange={props.onChange} />
 )
 
 export default Editable 

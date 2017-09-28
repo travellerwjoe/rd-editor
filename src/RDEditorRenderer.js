@@ -181,7 +181,6 @@ import './styles/index.css'
             return __ANIMATE_SCROLL_TO
         }).call(this);
 
-
         function RDEditorRenderer(data) {
             this.data = data
             this.content = this.data.content
@@ -223,7 +222,7 @@ import './styles/index.css'
 
                     for (var i = titleEl.length - 1; i >= 0; i--) {
                         var item = titleEl[i]
-
+                        
                         var top = self.getElementTop(item) - 10,
                             name = item.getAttribute('name'),
                             nav = document.querySelector('.anchor-nav')
@@ -264,11 +263,11 @@ import './styles/index.css'
             getHeaderHtml: function () {
                 var header = this.header
                 return '<div class="page-header">' +
-                    '<h1>' + header.title + '</h1>' +
+                    (header.title ? '<h1>' + header.title + '</h1>' : '') +
                     '<div style="color:#888;">' +
-                    '<span>作者：' + header.author + '</span>' +
-                    '<span style="margin-left:5px">' + header.date + '</span>' +
-                    '<span>' + header.location + '</span>' +
+                    (header.author ? '<span>作者：' + header.author + '</span>' : '') +
+                    (header.date ? '<span style="margin-left:5px">' + header.date + '</span>' : '') +
+                    (header.location ? '<span>' + header.location + '</span>' : '') +
                     '</div>' +
                     '</div>'
             },

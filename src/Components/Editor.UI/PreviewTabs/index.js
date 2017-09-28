@@ -16,9 +16,6 @@ class PreviewTabs extends Component {
     state = {
         mode: 'PC'
     }
-    constructor(props) {
-        super(props)
-    }
     toggleEditor(isPreviewMode, mode) {
         const container = document.getElementById('container')
         const anchorNav = document.querySelector('.anchor-nav')
@@ -37,11 +34,13 @@ class PreviewTabs extends Component {
                 device.classList.add('ipad')
             }
         } else {
-            container.style.marginTop = '100px'            
+            container.style.marginTop = '100px'
             container.style.display = 'block'
             anchorNav.style.display = 'block'
             device.style.display = 'none'
         }
+
+        typeof this.props.onSwitchPriview === 'function' && this.props.onSwitchPriview(mode)
     }
     componentDidMount() {
         this.toggleEditor(this.props.isPreviewMode, this.state.mode)

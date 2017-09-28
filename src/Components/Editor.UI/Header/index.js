@@ -19,6 +19,13 @@ import { createStore } from 'redux'
 import reducer from './reducer'
 import { changeTitle, changeAuthor, changeLocation, changeCover } from './actions'
 
+
+const getToday = () => {
+    const now = new Date()
+    return now.getFullYear() + '-' + ((now.getMonth() + 1) >= 10 ? now.getMonth() + 1 : '0' + (now.getMonth() + 1)) + '-' + (now.getDate() >= 10 ? now.getDate() : '0' + now.getDate())
+}
+
+
 let initialState = {
     title: '',
     author: '',
@@ -32,7 +39,8 @@ if (window.parent && window.parent.data) {
         title: Headline,
         author: Author,
         location: ProvinceName,
-        cover: CoverUrl
+        cover: CoverUrl,
+        date: getToday()
     }
 }
 console.log(initialState)
@@ -120,7 +128,6 @@ class SaveButton extends Component {
 
 
 
-
 class Header extends Component {
     state = {
         isPreviewMode: this.props.editor.store.getState().display.mode === 'preview',
@@ -129,7 +136,8 @@ class Header extends Component {
         title: '',
         author: '',
         location: '',
-        cover: ''
+        cover: '',
+        date: '',
     }
     constructor(props) {
         super(props)

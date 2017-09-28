@@ -20,10 +20,10 @@ class PageHeader extends Component {
 
         store.subscribe(() => {
             const state = store.getState()
-            console.log(state)
             this.setState({
                 ...state
             })
+            typeof props.onChange === 'function' && props.onChange(state)
         })
     }
     render() {

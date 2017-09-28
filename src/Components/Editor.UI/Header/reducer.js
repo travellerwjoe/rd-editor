@@ -2,7 +2,8 @@ const header = (state = {
     title: '',
     author: '',
     location: '',
-    cover: ''
+    cover: '',
+    date: '',
 }, action) => {
     switch (action.type) {
         case 'CHANGE_TITLE':
