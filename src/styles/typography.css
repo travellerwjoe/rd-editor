@@ -154,10 +154,10 @@ body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2
     font-size: 24px;
     position: absolute;
     top: 0;
-    left: 0; }
+    left: -30px; }
   .editable-area blockquote:after {
     content: '”';
     font-size: 24px;
     position: absolute;
     bottom: 0;
-    right: 0; }
+    right: -30px; }

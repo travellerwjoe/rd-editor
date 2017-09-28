@@ -193,17 +193,17 @@ class Header extends Component {
             },
             //最小长度
             minlength(value, len) {
-                const reg = new RegExp(`^\\d{${len},}$`)
+                const reg = new RegExp(`^.{${len},}$`)
                 return reg.test(value)
             },
             //最大长度
             maxlength(value, len) {
-                const reg = new RegExp(`^\\d{0,${len}}$`)
+                const reg = new RegExp(`^.{0,${len}}$`)
                 return reg.test(value)
             },
             //指定范围内的长度
             rangelength(value, lens) {
-                const reg = new RegExp(`^\\d{${lens[0]},${lens[1]}}$`)
+                const reg = new RegExp(`^.{${lens[0]},${lens[1]}}$`)
                 return reg.test(value)
             },
             //手机号码

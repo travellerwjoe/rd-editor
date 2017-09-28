@@ -13,7 +13,9 @@ const onSave = (state) => {
         ...state,
         content: JSON.stringify(allState)
     }
-    window.parent && typeof window.parent.onSave === 'function' && window.parent.onSave(data)
+    if (window.parent) {
+        typeof window.parent.onSave === 'function' && window.parent.onSave(data)
+    }
     window.close()
     console.log(JSON.stringify(allState, null, 4))
 }

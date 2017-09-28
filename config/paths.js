@@ -53,5 +53,7 @@ module.exports = {
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
   appOutputHtml: resolveApp('public/output.html'),
-  appOutputJS: resolveApp('src/output.js')
+  appOutputJS: resolveApp('src/output.js'),
+  appRendererHTML: resolveApp('public/renderer.html'),
+  appRendererJS: resolveApp('src/RDEditorRenderer.js')
 };
