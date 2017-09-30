@@ -12,6 +12,11 @@
   body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2, h3, h4, h5, h6 {
     font-size-adjust: 0.5;
   }
+
+  .editable-area h1, .editable-area h2, .editable-area h3, .editable-area h4, .editable-area h5, .editable-area h6{
+    color:#333;
+    font-weight:bold;
+  }
   
   .editable-area p, .editable-area h1, .editable-area h2, .editable-area h3, .editable-area h4, .editable-area h5, .editable-area h6, .editable-area blockquote, .editable-area pre {
     margin: 1em 0 0.5em;

@@ -41,6 +41,11 @@ class AnchorTitle extends Component {
     }
     handleChange = e => {
         const content = e.target.textContent
+        if (e.keyCode !== 8 && content.length >= MAX_NUMBER_OF_WORDS) {
+            e.target.innerHTML = content.substr(0, 50)
+            e.target.blur()
+            return false
+        }
         this.props.onChange({
             value: content,
             id: this.state.id
@@ -56,6 +61,7 @@ class AnchorTitle extends Component {
     }
     handleKeyDown = (e) => {
         const content = e.target.textContent
+        console.log(e.keyCode)
         if (e.keyCode !== 8 && content.length >= MAX_NUMBER_OF_WORDS) {
             e.target.innerHTML = content.substr(0, 50)
             e.target.blur()

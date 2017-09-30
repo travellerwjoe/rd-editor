@@ -50,7 +50,8 @@ body {
   .output{
     margin-top:0;
   }
-  @media (min-width: 375px){
+
+  @media (min-width: 200px){
     .container{
       padding:0 5px;
       margin-bottom: 0;
@@ -77,6 +78,12 @@ body {
       width: 1170px;
       padding: 0 24px;
       margin-bottom: 100px;  
+    }
+  }
+
+  @media (max-width:800px){
+    .container{
+      margin-bottom: 0;
     }
   }
   

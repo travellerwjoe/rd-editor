@@ -222,13 +222,13 @@ import './styles/index.css'
 
                     for (var i = titleEl.length - 1; i >= 0; i--) {
                         var item = titleEl[i]
-                        
-                        var top = self.getElementTop(item) - 10,
+
+                        var top = self.getElementTop(item) - 10 - containerTop,
                             name = item.getAttribute('name'),
                             nav = document.querySelector('.anchor-nav')
 
                         if (scrollTop >= top) {
-                            var target = nav.querySelector(`li[name="${name}"]`)
+                            var target = nav.querySelector('li[name="' + name + '"]')
                             var navLis = nav.querySelectorAll('li')
                             for (var i = 0; i < navLis.length; i++) {
                                 var navLi = navLis[i]

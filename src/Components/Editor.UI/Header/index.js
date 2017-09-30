@@ -133,11 +133,11 @@ class Header extends Component {
         isPreviewMode: this.props.editor.store.getState().display.mode === 'preview',
         alertOpen: false,
         errorMsg: '',
-        title: '',
-        author: '',
-        location: '',
-        cover: '',
-        date: '',
+        title: this.props.title,
+        author: this.props.author,
+        location: this.props.location,
+        cover: this.props.cover,
+        date: this.props.date,
     }
     constructor(props) {
         super(props)

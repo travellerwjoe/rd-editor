@@ -11,9 +11,21 @@ let pageHeaderState = {
     author: "",
     cover: "",
     location: "",
-    title: ""
+    title: "",
+    date: ''
 }
 let hasChange = true
+
+if (window.parent && window.parent.data) {
+    const { Headline, Author, ProvinceName, CoverUrl, AddTime } = window.parent.data
+    pageHeaderState = {
+        title: Headline,
+        author: Author,
+        location: ProvinceName,
+        cover: CoverUrl,
+        date: AddTime.substr(0, 10)
+    }
+}
 
 const onSave = (state) => {
     const data = {
@@ -29,7 +41,7 @@ const onSave = (state) => {
 
 const preview = document.getElementById('preview')
 
-const onSwitchPriview = (mode) => { 
+const onSwitchPriview = (mode) => {
     if (!hasChange) {
         return
     }
