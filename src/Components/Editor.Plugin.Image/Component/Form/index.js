@@ -37,7 +37,6 @@ class Form extends React.Component {
     this.props.onChange({ src: value })
   }
   componentDidUpdate(prevProps, prevState) {
-    console.log(prevState, this.state)
   }
 
   render() {

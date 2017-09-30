@@ -48,7 +48,8 @@ class UploaderDialog extends Component {
     }
     handleClose = () => {
         this.setState({
-            open: false
+            open: false,
+            canConfirm: false
         })
         typeof this.props.onClose === 'function' && this.props.onClose()
     }

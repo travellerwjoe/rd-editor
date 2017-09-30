@@ -9,40 +9,7 @@ import config from '@/config'
 const { uploadUrl } = config
 
 const getFiles = () => {
-    return JSON.parse(localStorage.getItem('images')) || [
-        {
-            img: 'http://www.material-ui.com/images/grid-list/00-52-29-429_640.jpg',
-            title: 'Breakfast',
-        },
-        {
-            img: 'http://www.material-ui.com/images/grid-list/burger-827309_640.jpg',
-            title: 'Tasty burger',
-        },
-        {
-            img: 'http://www.material-ui.com/images/grid-list/camera-813814_640.jpg',
-            title: 'Camera',
-        },
-        {
-            img: 'http://www.material-ui.com/images/grid-list/morning-819362_640.jpg',
-            title: 'Morning',
-        },
-        {
-            img: 'http://www.material-ui.com/images/grid-list/hats-829509_640.jpg',
-            title: 'Hats',
-        },
-        {
-            img: 'http://www.material-ui.com/images/grid-list/honey-823614_640.jpg',
-            title: 'Honey',
-        },
-        {
-            img: 'http://www.material-ui.com/images/grid-list/vegetables-790022_640.jpg',
-            title: 'Vegetables',
-        },
-        {
-            img: 'http://www.material-ui.com/images/grid-list/water-plant-821293_640.jpg',
-            title: 'Water plant',
-        }
-    ] || []
+    return (localStorage.getItem('images') && JSON.parse(localStorage.getItem('images'))) || []
 }
 localStorage.setItem('images', JSON.stringify(getFiles()))
 
@@ -82,7 +49,7 @@ class Uploader extends Component {
         if (!files.length) {
             return
         }
-        console.log(files)
+
         if (!this.checkFilesType(files)) {
             alert('只支持上传jpg、png、gif类型的图片')
             return
@@ -104,7 +71,7 @@ class Uploader extends Component {
                 axios.post(uploadUrl, params, {
                     headers: { 'Content-Type': 'multipart/form-data' },
                     onUploadProgress: (progressEvent) => {
-                        console.log(progressEvent)
+
                     }
                 }).then(res => {
                     const uploadedImg = this.props.onUploadedFile(res)
@@ -121,6 +88,9 @@ class Uploader extends Component {
                     el.value = null
                 }).catch(err => {
                     el.value = null
+                    this.setState({
+                        filesTmp: []
+                    })
                     alert(err)
                 })
             }
@@ -157,7 +127,6 @@ class Uploader extends Component {
         const img = el.getElementsByTagName('img')[0]
         const src = img.src
         let status
-
 
         //单选文件
         if (!this.props.multipleSelect) {
@@ -196,6 +165,7 @@ class Uploader extends Component {
     }
 
     deleteFile = (e, index) => {
+        e.stopPropagation()
         const files = this.state.files.slice()
         const deletedFile = files.splice(index, 1)
         this.setState({
@@ -235,8 +205,8 @@ class Uploader extends Component {
     }
 
     componentWillUpdate(nextProps, nextState) {
-        const files = nextState.files
-        localStorage.setItem('images', JSON.stringify(files))
+        const files = nextState && nextState.files
+        typeof files === 'object' && localStorage.setItem('images', JSON.stringify(files))
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -273,7 +243,7 @@ class Uploader extends Component {
                                     onMouseOver={this.hoverFile}
                                     onMouseOut={this.leaveFile}
                                 >
-                                    <img src={`${item.img}`} />
+                                    <img src={`${item.img}`} onError={(e) => { e.target.setAttribute('alt', '图片未找到') }} />
                                 </GridTile>
                             )
                         })
