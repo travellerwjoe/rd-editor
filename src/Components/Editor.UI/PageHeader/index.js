@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 import { connect, Provider } from 'react-redux'
-import reducer from '../Header/reducer'
+// import reducer from '../Header/reducer'
 import { store } from '../Header'
-import { createStore, combineReducers } from 'redux'
+// import { createStore, combineReducers } from 'redux'
 
 // let store = createStore(reducer)
 
-const getToday = () => {
-    const now = new Date()
-    return now.getFullYear() + '-' + ((now.getMonth() + 1) >= 10 ? now.getMonth() + 1 : '0' + (now.getMonth() + 1)) + '-' + (now.getDate() >= 10 ? now.getDate() : '0' + now.getDate())
-}
+
 
 class PageHeader extends Component {
     state = {
@@ -27,8 +24,7 @@ class PageHeader extends Component {
         })
     }
     render() {
-        const today = getToday()
-        const { title, author, location } = this.state
+        const { title, author, location, date } = this.state
         return (
             <div className="page-header">
                 {title ?
@@ -42,7 +38,7 @@ class PageHeader extends Component {
                 >
                     {author ?
                         <span>
-                            作者：{author}  {getToday()}
+                            作者：{author}  {date}
                         </span>
                         : ''}
                     {location ?

@@ -3,7 +3,7 @@ import React from 'react'
 import ImageIcon from 'material-ui/svg-icons/image/panorama'
 
 import { iconStyle } from '../common.js'
-import type { PropTypes } from '../index.js'
+// import type { PropTypes } from '../index.js'
 
 /* const Display = ({ state }: PropTypes) =>
   state.src ? (
@@ -19,20 +19,11 @@ import type { PropTypes } from '../index.js'
   ) */
 
 class Display extends React.Component {
-  constructor(props) {
-    super(props)
-    console.log('image')
-  }
-
-  componentWillUnmount() {
-    console.log('image unmount')
-  }
-
   render() {
     const { state } = this.props
     return state.src ? (
       <div>
-        <img className="ory-plugins-content-image" src={state.src} />
+        <img className="ory-plugins-content-image" src={state.src} alt="加载失败"/>
       </div>
     ) : (
         <div>

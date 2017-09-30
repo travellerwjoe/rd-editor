@@ -1,30 +1,24 @@
 import React, { Component } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import { deepPurple400, orange500 } from 'material-ui/styles/colors'
+// import { deepPurple400, orange500 } from 'material-ui/styles/colors'
 import { connect } from 'react-redux'
 import { addAnchorNav, delAnchorNav } from '../actions'
 import { MAX_NUMBER_OF_WORDS } from '../config'
 
-let count = 0
-
-const mapDispatchToProps = dispatch => {
+/* const mapDispatchToProps = dispatch => {
     return {
         onAddAnchorNav: (navData) => {
             dispatch(addAnchorNav(navData))
         }
     }
-}
+} */
 
 
 class AnchorTitle extends Component {
-    constructor(props) {
-        super(props)
-        console.log('AnchorTitle', props)
-    }
     componentWillMount() {
         const {
-            onAddAnchorNav,
+            // onAddAnchorNav,
             id
         } = this.props
         this.props.dispatch(addAnchorNav({
@@ -61,7 +55,6 @@ class AnchorTitle extends Component {
     }
     handleKeyDown = (e) => {
         const content = e.target.textContent
-        console.log(e.keyCode)
         if (e.keyCode !== 8 && content.length >= MAX_NUMBER_OF_WORDS) {
             e.target.innerHTML = content.substr(0, 50)
             e.target.blur()
@@ -86,7 +79,7 @@ class AnchorTitle extends Component {
                         onKeyDown={this.handleKeyDown}
                         onKeyUp={this.handleChange}
                     >
-                        {this.state.value}
+                        {value}
                     </div>
                 </div>
             </MuiThemeProvider >

@@ -74,7 +74,6 @@ let wasInitialized = false
 
 class Decorator extends Component {
   componentDidMount() {
-    console.log('Decorator',this.props)
     if (!wasInitialized) {
       if (!Mousetrap) {
         return

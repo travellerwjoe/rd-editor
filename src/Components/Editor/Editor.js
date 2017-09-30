@@ -40,13 +40,9 @@ let content = defaultContent
         content = data.Content
     }) */
 
-
 if (window.parent && window.parent.data) {
     content = [JSON.parse(window.parent.data.Content)]
 }
-
-console.log(content)
-
 
 const plugins = {
     content: [slate(), image, anchorTitle],
@@ -67,7 +63,6 @@ const editor = new Editor({
 })
 
 export const RDEditor = (props) => {
-    console.log(props)
     return (
         <Editable
             editor={editor}

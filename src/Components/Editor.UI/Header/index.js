@@ -30,20 +30,20 @@ let initialState = {
     title: '',
     author: '',
     location: '',
-    cover: ''
+    cover: '',
+    date: getToday()
 }
 
 if (window.parent && window.parent.data) {
-    const { Headline, Author, ProvinceName, CoverUrl } = window.parent.data
+    const { Headline, Author, ProvinceName, CoverUrl, AddTime } = window.parent.data
     initialState = {
         title: Headline,
         author: Author,
         location: ProvinceName,
         cover: CoverUrl,
-        date: getToday()
+        date: AddTime
     }
 }
-console.log(initialState)
 
 export let store = createStore(reducer, initialState)
 
@@ -73,9 +73,6 @@ class HeaderSelectField extends Component {
     state = {
         value: this.props.value || null
     }
-    constructor(props) {
-        super(props)
-    }
     handleChange = (e, index, value) => {
         this.setState({ value })
         typeof this.props.onChange === 'function' && this.props.onChange(e, index, value)
@@ -100,9 +97,6 @@ class HeaderSelectField extends Component {
 }
 
 class SaveButton extends Component {
-    constructor(props) {
-        super(props)
-    }
     onClick = (e) => {
         typeof this.props.onSave === 'function' && this.props.onSave(store.getState())
     }
@@ -184,15 +178,15 @@ class Header extends Component {
             },
             //小于某数
             min(value, num) {
-                return parseInt(value) <= num
+                return parseInt(value, 10) <= num
             },
             //大于某数
             max(value, num) {
-                return parseInt(value) >= num
+                return parseInt(value, 10) >= num
             },
             //大小在某个范围内
             range(value, nums) {
-                value = parseInt(value)
+                value = parseInt(value, 10)
                 return value >= nums[0] && value <= nums[1]
             },
             //指定长度
@@ -265,7 +259,6 @@ class Header extends Component {
                 return /[\u4e00-\u9fa5]/gm.test(value)
             }
         }
-        const errors = []
         for (let key in rules) {
             const pass = key && validator[key] && validator[key](value, rules[key])
             if (!pass) {

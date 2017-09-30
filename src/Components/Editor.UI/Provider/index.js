@@ -14,8 +14,6 @@ const muiTheme = getMuiTheme({
   }
 })
 
-console.log(muiTheme)
-
 type PropTypes = { editor: Editor, children: [] }
 
 class Provider extends Component {
@@ -31,8 +29,6 @@ class Provider extends Component {
     const { editor, children = [], store } = this.props
     const DragDropContext = this.DragDropContext
     const newStore = { ...store, ...editor.store }
-    console.log('Provider',newStore)
-    console.log(newStore.getState())
     return (
       <ReduxProvider store={newStore}>
         <DragDropContext>

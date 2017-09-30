@@ -15,14 +15,10 @@ const store = createStore(reducers)
         </Provider>
     )
 } */
-const generateRandomID = (len) => Array.apply(null, Array(len)).map(item => 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'[parseInt(Math.random() * 62)]).join('')
+const generateRandomID = (len) => Array.apply(null, Array(len)).map(item => 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'[parseInt(Math.random() * 62, 10)]).join('')
 
 
 class Component extends React.Component {
-    constructor(props) {
-        super(props)
-        console.log('component')
-    }
     render() {
         const props = this.props
         const children = props.nav ? <Nav {...props} /> : <AnchorTitle {...props} />
@@ -51,19 +47,16 @@ export default {
     handleRemoveHotKey: (e, { content: { state: { value } } }) => {
         return new Promise(
             (resolve, reject) => {
-                console.log(value)
                 return value.length < 1 ? resolve() : reject()
             }
         )
     },
     handleFocusPreviousHotKey: (e, { content: { state: { value } } }) => {
         return new Promise((resolve, reject) => {
-            console.log(value)
         })
     },
     handleFocusNextHotKey: (e, { content: { state: { value } } }) => {
         return new Promise((resolve, reject) => {
-            console.log(value)
         })
     }
 }

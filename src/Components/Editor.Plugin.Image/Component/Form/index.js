@@ -3,20 +3,20 @@ import React from 'react'
 import Display from '../Display'
 import TextField from 'material-ui/TextField'
 import { UploaderDialogToggle } from '../Uploader'
-import type { PropTypes } from '../index.js'
+// import type { PropTypes } from '../index.js'
 
 import { BottomToolbar } from '#/Editor.UI'
 
-import { triggerEvent } from '@/helpers/event'
+// import { triggerEvent } from '@/helpers/event'
 
 
 class Form extends React.Component {
   state = {
     value: this.props.state.src
   }
-  constructor(props: PropTypes) {
+/*   constructor(props: PropTypes) {
     super(props)
-  }
+  } */
   handleChange = (onChange: Function) => (e: Event) => {
     const target = e.target
 

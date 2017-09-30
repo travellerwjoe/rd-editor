@@ -18,10 +18,10 @@ const muiTheme = getMuiTheme({
 
 class UploaderDialog extends Component {
     static propTypes = {
-        open: React.PropTypes.bool.isRequired, //是否打开对话框
-        onOpen: React.PropTypes.func, //对话框打开
-        onClose: React.PropTypes.func, //对话框关闭
-        onConfirm: React.PropTypes.func //对话框确认
+        open: PropTypes.bool.isRequired, //是否打开对话框
+        onOpen: PropTypes.func, //对话框打开
+        onClose: PropTypes.func, //对话框关闭
+        onConfirm: PropTypes.func //对话框确认
     }
 
     state = {
@@ -29,11 +29,6 @@ class UploaderDialog extends Component {
         canConfirm: false
     }
     selected = null
-
-    constructor(props) {
-        super(props)
-    }
-
     componentWillReceiveProps(nextProps) {
         nextProps.open && this.setState({
             open: nextProps.open

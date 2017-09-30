@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { deepPurple400, orange500 } from 'material-ui/styles/colors'
+import { deepPurple400 } from 'material-ui/styles/colors'
 import 'velocity-animate'
 
 const mapStateToProps = state => {
@@ -36,7 +36,7 @@ const getAnchorTitleState = () => {
 }
 
 //节流
-const throttle = (func, wait, mustRun) => {
+/* const throttle = (func, wait, mustRun) => {
     var timeout,
         startTime = new Date()
 
@@ -55,10 +55,10 @@ const throttle = (func, wait, mustRun) => {
             timeout = setTimeout(func, wait)
         }
     }
-}
+} */
 
 //防抖
-const debounce = (func, wait, immediate) => {
+/* const debounce = (func, wait, immediate) => {
     var timeout
     return function () {
         var context = this, args = arguments
@@ -71,7 +71,7 @@ const debounce = (func, wait, immediate) => {
         timeout = setTimeout(later, wait)
         if (callNow) func.apply(context, args)
     }
-}
+} */
 
 class AnchorNav extends Component {
     allAnchorTitleState

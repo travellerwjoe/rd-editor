@@ -15,22 +15,17 @@ localStorage.setItem('images', JSON.stringify(getFiles()))
 
 class Uploader extends Component {
     static propTypes = {
-        server: React.PropTypes.string, // 服务器上传地址
-        multiple: React.PropTypes.bool, //多文件上传
-        multipleSelect: React.PropTypes.bool, //文件可否多选
-        onSelectFile: React.PropTypes.func, //选中已上传文件事件
-        onDeleteFile: React.PropTypes.func, //删除已上传文件事件
-        onUploadedFile: React.PropTypes.func.isRequired, //已上传文件回掉，需返回上传后的文件对象
+        server: PropTypes.string, // 服务器上传地址
+        multiple: PropTypes.bool, //多文件上传
+        multipleSelect: PropTypes.bool, //文件可否多选
+        onSelectFile: PropTypes.func, //选中已上传文件事件
+        onDeleteFile: PropTypes.func, //删除已上传文件事件
+        onUploadedFile: PropTypes.func.isRequired, //已上传文件回掉，需返回上传后的文件对象
     }
 
     static defaultProps = {
         multiple: true,
         multipleSelect: true
-    }
-
-    constructor(props) {
-        super(props);
-
     }
     state = {
         files: getFiles(),
@@ -56,11 +51,10 @@ class Uploader extends Component {
         }
 
         if (!this.checkFilesSize(files)) {
-            alert(`最大只支持上传${parseInt(this.limit / 1000000)}M以内的图片`)
+            alert(`最大只支持上传${parseInt(this.limit / 1000000, 10)}M以内的图片`)
             return
         }
 
-        const reader = new FileReader()
         const filesTmp = this.state.filesTmp.slice()
         const filesState = this.state.files.slice()
 
@@ -243,7 +237,7 @@ class Uploader extends Component {
                                     onMouseOver={this.hoverFile}
                                     onMouseOut={this.leaveFile}
                                 >
-                                    <img src={`${item.img}`} onError={(e) => { e.target.setAttribute('alt', '图片未找到') }} />
+                                    <img src={`${item.img}`}  alt="加载失败" />
                                 </GridTile>
                             )
                         })
@@ -255,7 +249,7 @@ class Uploader extends Component {
                                 //title={item.title}
                                 cols={cols}
                             >
-                                <img src={`${item}`} />
+                                <img src={`${item}`} alt="加载失败"/>
                             </GridTile>
                         ))
                     }

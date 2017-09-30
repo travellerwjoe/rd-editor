@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import 'babel-polyfill'
 import './index.css'
 // import App from './App'
-import Editable, { RDEditor, RDControls, RDPageHeader } from './Components/Editor'
+import { RDEditor, RDControls, RDPageHeader } from './Components/Editor'
 import registerServiceWorker from './registerServiceWorker'
 
 let allState = {}
@@ -58,17 +58,20 @@ const onSwitchPriview = (mode) => {
     }
 }
 
+const handleEditorChange = (state) => {
+    if (JSON.stringify(allState) !== JSON.stringify(state)) {
+        hasChange = true
+    }
+    allState = state
+}
+
+
 const elements = document.querySelectorAll('.editable')
 for (const element of elements) {
     ReactDOM.render((
         <RDEditor
             id={element.dataset.id}
-            onChange={(state) => {
-                if (JSON.stringify(allState) !== JSON.stringify(state)) {
-                    hasChange = true
-                }
-                allState = state
-            }}
+            onChange={handleEditorChange}
         />),
         element)
 }
