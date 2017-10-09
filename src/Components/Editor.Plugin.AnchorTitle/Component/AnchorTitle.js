@@ -34,12 +34,10 @@ class AnchorTitle extends Component {
         id: this.props.state.id,
     }
     handleChange = e => {
-        const content = e.target.textContent
-        if (e.keyCode !== 8 && content.length >= MAX_NUMBER_OF_WORDS) {
-            e.target.innerHTML = content.substr(0, 50)
-            e.target.blur()
-            return false
+        if (e.target.textContent.length >= MAX_NUMBER_OF_WORDS) {
+            e.target.innerHTML = e.target.textContent.substr(0, 50)
         }
+        const content = e.target.textContent
         this.props.onChange({
             value: content,
             id: this.state.id
@@ -63,7 +61,6 @@ class AnchorTitle extends Component {
     }
     render() {
         const {
-            state: { value },
             readOnly
         } = this.props
 
@@ -79,7 +76,7 @@ class AnchorTitle extends Component {
                         onKeyDown={this.handleKeyDown}
                         onKeyUp={this.handleChange}
                     >
-                        {value}
+                        {this.state.value}
                     </div>
                 </div>
             </MuiThemeProvider >

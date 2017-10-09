@@ -217,7 +217,7 @@ import './styles/index.css'
                     interval
 
                 var scroll = function () {
-                    var scrollTop = window.scrollY,
+                    var scrollTop = window.scrollY || document.documentElement.scrollTop,
                         titleEl = document.querySelectorAll('.anchor-title')
 
                     for (var i = titleEl.length - 1; i >= 0; i--) {
@@ -232,7 +232,8 @@ import './styles/index.css'
                             var navLis = nav.querySelectorAll('li')
                             for (var i = 0; i < navLis.length; i++) {
                                 var navLi = navLis[i]
-                                navLi.style = null
+                                navLi.style.background = ''
+                                navLi.style.color = ''
                             }
                             target.style.background = '#7e57c2'
                             target.style.color = '#fff'
@@ -242,7 +243,7 @@ import './styles/index.css'
                 }
 
                 var navigate = function (e) {
-                    var el = e.target,
+                    var el = e.target || e.srcElement,
                         name = el.getAttribute('name'),
                         targetEl = document.querySelector('.anchor-title[name="' + name + '"]'),
                         top = self.getElementTop(targetEl) - 10
@@ -251,12 +252,17 @@ import './styles/index.css'
                         top -= anchorNavHeight
                     }
 
-                    animateScrollTo(top, {
-                        speed: 1000
-                    })
+                    if (window.attachEvent) {
+                        //ie8以下
+                        window.scrollTo(0, top)
+                    } else {
+                        animateScrollTo(top, {
+                            speed: 1000
+                        })
+                    }
                 }
 
-                window.addEventListener('scroll', scroll)
+                this.addEvent(window, 'scroll', scroll)
                 this.addEvent(document.querySelectorAll('.anchor-nav-list li'), 'click', navigate)
 
             },
@@ -462,14 +468,18 @@ import './styles/index.css'
                 if (window.attachEvent) {
                     if (el.length > 1) {
                         for (var i = 0; i < el.length; i++) {
-                            el.attachEvent(event, handler)
+                            el[i].attachEvent('on' + event, handler)
                         }
+                    } else {
+                        el.attachEvent('on' + event, handler)
                     }
                 } else if (window.addEventListener) {
                     if (el.length > 1) {
                         for (var i = 0; i < el.length; i++) {
                             el[i].addEventListener(event, handler, false)
                         }
+                    } else {
+                        el.addEventListener(event, handler, false)
                     }
                 }
             },

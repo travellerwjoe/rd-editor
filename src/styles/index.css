@@ -99,6 +99,19 @@ nav ul li a:active {
 ::-webkit-scrollbar {
   display: none; }
 
+.not-support {
+  font-size: 30px;
+  color: #888888;
+  position: absolute;
+  margin: auto;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  width: 900px;
+  height: 80px;
+  line-height: 40px; }
+
 /* http://typecast.com/blog/a-more-modern-scale-for-web-typography */
 :root {
   /* equivalent to 16px */

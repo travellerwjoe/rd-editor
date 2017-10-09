@@ -125,3 +125,17 @@ body {
   
 
   ::-webkit-scrollbar {display:none}
+
+  .not-support{
+    font-size: 30px;
+    color: rgb(136, 136, 136);
+    position: absolute;
+    margin: auto;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    width: 900px;
+    height: 80px;
+    line-height: 40px;
+  }
