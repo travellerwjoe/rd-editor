@@ -49,6 +49,9 @@ body {
 
   .output{
     margin-top:0;
+    *{
+      white-space: pre-wrap;
+    }
   }
 
   @media (min-width: 200px){

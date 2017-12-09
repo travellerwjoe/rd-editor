@@ -39,6 +39,8 @@ a:hover {
 
 .output {
   margin-top: 0; }
+  .output * {
+    white-space: pre-wrap; }
 
 @media (min-width: 200px) {
   .container {
