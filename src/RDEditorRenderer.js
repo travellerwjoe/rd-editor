@@ -180,11 +180,40 @@ import './styles/index.css'
 
             return __ANIMATE_SCROLL_TO
         }).call(this);
+        /* 
+                function extend(origin, target) {
+                    if (typeof origin !== 'object' && typeof target === 'object') {
+                        return target
+                    } else if (typeof origin === 'object' && typeof target !== 'object') {
+                        return origin
+                    } else if (typeof origin !== 'object' && typeof target !== 'object') {
+                        return {}
+                    }
+                    for (var key in target) {
+                        origin[key] = target[key]
+                    }
+                } */
 
         function RDEditorRenderer(data) {
-            this.data = data
-            this.content = this.data.content
-            this.header = this.data.header
+            if (typeof data !== 'object') {
+                return
+            }
+            this.content = data.content
+            this.header = data.header
+            this.header = {
+                title: '',
+                author: '',
+                location: '',
+                date: ''
+            }
+            if (typeof data.content !== 'object') {
+                this.content = data
+            }
+            if (typeof data.header === 'object') {
+                for (var key in data.header) {
+                    this.header[key] = data.header[key]
+                }
+            }
             this.classes = {
                 row: 'ory-row',
                 cell: 'ory-cell',
