@@ -57,6 +57,11 @@ module.exports = {
       require.resolve('./polyfills'),
       require.resolve('react-dev-utils/webpackHotDevClient'),
       paths.appOutputJS
+    ],
+    renderer: [
+      require.resolve('./polyfills'),
+      require.resolve('react-dev-utils/webpackHotDevClient'),
+      paths.appRendererJS
     ]
   },
   output: {
@@ -239,6 +244,12 @@ module.exports = {
       chunks: ['output'],
       template: paths.appOutputHtml,
       filename: 'output.html'
+    }),
+    new HtmlWebpackPlugin({
+      inject: true,
+      chunks: ['renderer'],
+      template: paths.appRendererHTML,
+      filename: 'renderer.html'
     }),
     // Add module names to factory functions so they appear in browser profiler.
     new webpack.NamedModulesPlugin(),
