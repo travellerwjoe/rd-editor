@@ -88,6 +88,9 @@ class Button extends Component {
       return
     }
 
+    //若未加上http(s)://的链接默认加上http://
+    const href = this.state.href.replace(/^(([a-zA-Z0-9_-])+(\.)?)*(:\d+)?(\/((\.)?(\?)?=?&?[a-zA-Z0-9_-](\?)?)*)*$/i,'http://$&')
+
     if (this.state.wasExpanded) {
       const newState = this.props.editorState
         .transform()
@@ -96,7 +99,7 @@ class Button extends Component {
         .transform()
         .wrapInline({
           type: A,
-          data: { href: this.state.href }
+          data: { href }
         })
         .collapseToEnd()
         .apply()
@@ -117,7 +120,7 @@ class Button extends Component {
       .extend(-this.state.title.length)
       .wrapInline({
         type: A,
-        data: { href: this.state.href }
+        data: { href }
       })
       .collapseToEnd()
       .focus()

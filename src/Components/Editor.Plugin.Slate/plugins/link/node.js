@@ -13,7 +13,7 @@ const Link = ({
   const href = data.get('href')
 
   return (
-    <a {...attributes} href={href}>
+    <a {...attributes} href={href} target="_blank">
       {children}
     </a>
   )

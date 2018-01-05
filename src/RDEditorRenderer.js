@@ -393,6 +393,10 @@ import './styles/index.css'
                             if (data) {
                                 if (data.href) {
                                     html += ' href="' + data.href + '"'
+                                    //如果是PC浏览，超链接在新标签中打开
+                                    if (!/(iPhone|Android|iPad)/.test(window.navigator.userAgent)) {
+                                        html += ' target="_blank"'
+                                    }
                                 }
                                 if (data && data.align) {
                                     html += ' style="text-align:' + data.align + ';"'
