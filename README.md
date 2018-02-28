@@ -1,3 +1,27 @@
+# RD-Editor
+
+## Screenshots
+
+* Edit Mode
+
+![Edit Mode](screenshots/rd-editor-edit.gif)
+
+* Add Mode
+
+![Add Mode](screenshots/rd-editor-add.gif)
+
+* Move Mode
+
+![Move Mode](screenshots/rd-editor-move.gif)
+
+* Resize Mode
+
+![Resize Mode](screenshots/rd-editor-resize.gif)
+
+* Preview Mode
+
+![Preview Mode](screenshots/rd-editor-preview.gif)
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
